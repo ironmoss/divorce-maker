@@ -13,37 +13,31 @@
 
 ActiveRecord::Schema.define(version: 20160616033302) do
 
-  create_table "associations", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "relationship_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
   create_table "incidents", force: :cascade do |t|
+    t.integer  "user_id"
     t.integer  "relationship_id"
     t.string   "category"
     t.string   "description"
-    t.boolean  "forgiven",          default: false
-    t.float    "calculated_points"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.string   "status"
+    t.integer  "calculated_points"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "relationships", force: :cascade do |t|
-    t.integer  "association_id"
+    t.integer  "user1_id"
+    t.integer  "user2_id"
     t.boolean  "status_of_relationship", default: true
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer  "association_id"
     t.string   "nickname"
     t.string   "email"
     t.string   "twitter"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
