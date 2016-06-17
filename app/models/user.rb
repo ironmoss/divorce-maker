@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 		Incident.where(user_id: id).sum(:calculated_points)
 	end
 
-
-
+  validates :nickname, presence: true
+  validates :email, presence: true
 
 end
