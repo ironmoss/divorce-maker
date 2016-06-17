@@ -1,24 +1,28 @@
 <div class="row">
 	<div class="col-md-4" style="background-color: green">
 		<h1><%= current_user.nickname %></h1>
+		<%= current_user.total_points %><br>
 		left graph
+
 		
 	</div>
 
 	<div class="col-md-4" style= "background-color: red">
 		display who is winning
 		
+		
 
 
 	</div>
 
 	<div class="col-md-4" style= "background-color: yellow">
-		<h1><%= current_relationship.user2.nickname %></h1>
+		<h1><%= current_partner.nickname %></h1>
+		<%= current_partner.total_points %><br>
 			right graph
 	</div>
 </div>
 
 <div class="row">
-	<div class="col-md-4" style= "background-color: grey">timeline
+	<div class="col-md-12" style= "background-color: grey">timeline
 	</div>
 </div>

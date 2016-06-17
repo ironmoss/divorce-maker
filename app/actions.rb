@@ -7,6 +7,10 @@ helpers do
 		#nickname: session["username"] if session["nickname"]
 	end
 
+	def current_partner
+		@partner = current_relationship.partner(current_user.id)
+	end
+
 	def current_relationship
 		@current_relationship ||= Relationship.find(1)
 

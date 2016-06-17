@@ -4,12 +4,12 @@ class Relationship < ActiveRecord::Base
   belongs_to :user1, class_name: 'User', foreign_key: 'user1_id'
   belongs_to :user2, class_name: 'User', foreign_key: 'user2_id'
 
-	def partner
+	def partner(current_user_id)
 		#gets the other user info
-		if session[:member].id == relationship.user1.id
-			partner = User.find(2)
+		if current_user_id == user1.id
+			partner = User.find(user2.id)
 		else 
-			partner = User.find(1)
+			partner = User.find(user1.id)
 		end
 	end	
 
