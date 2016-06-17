@@ -1,12 +1,12 @@
 #creating Users & Incidents
 
 #couple 1
-@shnookum = User.create!(nickname: "Shnookum", email: "sunny_day155@hotmail.com", twitter: "Shnookie99")
-@fuzzybear = User.create!(nickname: "Fuzzybear", email: "red_baron@aol.com", twitter: "RBGuy591")
+@shnookum = User.create!(nickname: "Shnookum", email: "sunny_day155@hotmail.com", password: "12345", twitter: "Shnookie99")
+@fuzzybear = User.create!(nickname: "Fuzzybear", email: "red_baron@aol.com", password: "airplane81", twitter: "RBGuy591")
 
 #couple 2
-@milly = User.create!(nickname: "Milly", email: "scorpio94@yahoo.ca", twitter: "Mildred1")
-@bob = User.create!(nickname: "Bob", email: "theresalways@bob.com", twitter: "Just_Bob")
+@milly = User.create!(nickname: "Milly", email: "scorpio94@yahoo.ca", password: "zodiac01", twitter: "Mildred1")
+@bob = User.create!(nickname: "Bob", email: "theresalways@bob.com", password: "alwaysbob", twitter: "Just_Bob")
 
 @relationship1 = Relationship.create!(user1_id: @shnookum.id, user2_id: @fuzzybear.id)
 @relationship2 = Relationship.create!(user1_id: @milly.id, user2_id: @bob.id)
