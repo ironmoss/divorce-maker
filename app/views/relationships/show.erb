@@ -29,9 +29,11 @@
 <div class="row">
 	<div class="col-md-12" style= "background-color: grey">
 		<% @incidents.each do |incident| %>
-		
+			
+			<% if my_incident?(incident.id) && (incident.user_id == current_user.id) %>
+			<input class="btn btn-default" type="submit" value="forgive" >
+			<% end %>
 			<%= incident.user.nickname %> <%= incident.category %> <%= incident.description %><br>
-		
 			<% end %>
 		#display all incidents in reverse chronological order
 		%>

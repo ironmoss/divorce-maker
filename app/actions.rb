@@ -16,6 +16,14 @@ helpers do
 
 	end
 
+	def my_incident?(current_incident_id)
+		if Incident.where(incident_id: current_incident_id)
+			true
+		else 
+			false  
+		end
+	end
+
 end
 
 get '/' do
