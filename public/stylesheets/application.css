@@ -26,3 +26,38 @@
     display: inline;
 }
 
+.top-bar {
+	height: 200px;
+	background-color: yellow;
+	font-size: 80px;
+	text-align: center;
+	line-height: 150px;
+
+}
+
+.middle-bar {
+	height: 250px;
+	background-color: grey;
+	text-align: center ;
+}
+
+.btn-lg {
+    padding: 18px 28px;
+    font-size: 22px;
+    border-radius: 8px;
+}
+
+.bottom-bar {
+
+	height: 200px;
+	background-color: yellow;
+	font-size: 40px;
+	text-align: center;
+
+}
+
+
+
+.pro-version {
+
+}
