@@ -1,4 +1,5 @@
 # Homepage (Root path)
+require 'chartkick'
 
 helpers do
 	def current_user
@@ -38,6 +39,12 @@ get '/relationships/:id' do
 	@relationship = Relationship.find params[:id]
 	@incidents = Incident.where(relationship_id: params[:id]).order("created_at desc")
   erb :'relationships/show'
+end
+
+post '/relationships/forgive' do
+	@incident = Incident.find params[:id]
+	@forgive = @incident.update(status: 'forgiven')
+    redirect "/relationships/#{current_relationship.id}"
 end
 
 get '/relationships/new_kiss' do
