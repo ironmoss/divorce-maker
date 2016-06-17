@@ -39,6 +39,10 @@ get '/relationships/forget' do
 	erb :'forget-page/forget-page'
 end
 
+get '/relationships/new_kiss' do
+  erb :'/relationships/new_kiss/index'
+end
+
 get '/relationships/:id' do
 	@relationship = Relationship.find params[:id]
 	@incidents = Incident.where(relationship_id: params[:id]).order("created_at desc")
@@ -51,7 +55,5 @@ post '/relationships/forgive' do
     redirect "/relationships/#{current_relationship.id}"
 end
 
-get '/relationships/new_kiss' do
-  erb :'/relationships/new_kiss/index'
-end
+
 

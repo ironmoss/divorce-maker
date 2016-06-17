@@ -26,9 +26,17 @@
     display: inline;
 }
 
+.margin-top{
+	height: 100px;
+	background-color: #FCF8E3;
+	padding-top: 20px;
+	padding-right: 40px;
+
+}
+
 .top-bar {
 	height: 200px;
-	background-color: yellow;
+	background-color: #FCF8E3;
 	font-size: 80px;
 	text-align: center;
 	line-height: 150px;
@@ -36,21 +44,28 @@
 }
 
 .middle-bar {
-	height: 250px;
-	background-color: grey;
+	height: 150px;
+	background-color: #FCF8E3;
 	text-align: center ;
 }
 
 .btn-lg {
     padding: 18px 28px;
     font-size: 22px;
+    border-radius: 2px;
+}
+
+
+.btn-default {
+    padding: 15px 20px;
+    font-size: 32px;
     border-radius: 8px;
 }
 
 .bottom-bar {
 
-	height: 200px;
-	background-color: yellow;
+	height: 450px;
+	background-color: #FCF8E3;
 	font-size: 40px;
 	text-align: center;
 
