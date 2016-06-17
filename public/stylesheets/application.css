@@ -1,0 +1,9 @@
+.incident {
+     max-height: 500px;
+     overflow-y: scroll;
+   }
+
+ .rounding {
+  border-radius:7px; 
+  padding:10px;
+ }
