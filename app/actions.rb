@@ -40,6 +40,12 @@ get '/relationships/:id' do
   erb :'relationships/show'
 end
 
+post '/relationships/forgive' do
+	@incident = Incident.find params[:id]
+	@forgive = @incident.update(status: 'forgiven')
+    redirect "/relationships/#{current_relationship.id}"
+end
+
 get '/relationships/new_kiss' do
   erb :'/relationships/new_kiss/index'
 end
