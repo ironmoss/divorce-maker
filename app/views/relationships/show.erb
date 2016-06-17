@@ -17,9 +17,6 @@
 			is winning the relationship
 		<% end %>
 		</h1>
-		
-
-
 	</div>
 
 	<div class="col-md-4" style= "background-color: yellow">
@@ -30,6 +27,13 @@
 </div>
 
 <div class="row">
-	<div class="col-md-12" style= "background-color: grey">timeline
+	<div class="col-md-12" style= "background-color: grey">
+		<% @incidents.each do |incident| %>
+		
+			<%= incident.user.nickname %> <%= incident.category %> <%= incident.description %><br>
+		
+			<% end %>
+		#display all incidents in reverse chronological order
+		%>
 	</div>
 </div>

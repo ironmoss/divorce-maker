@@ -28,5 +28,7 @@ end
 
 get '/relationships/:id' do
 	@relationship = Relationship.find params[:id]
+	@incidents = Incident.where relationship_id: params[:id]
   erb :'relationships/show'
 end
+

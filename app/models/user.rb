@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
 		#calculates total points of any user that's passed		
 		#sum total points of total_user all incidents 
 		Incident.where(user_id: id).sum(:calculated_points)
-
 	end
 
 
