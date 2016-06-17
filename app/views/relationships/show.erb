@@ -8,8 +8,15 @@
 	</div>
 
 	<div class="col-md-4" style= "background-color: red">
-		display who is winning
-		
+		<h1>
+		<% if current_user.total_points > current_partner.total_points %>
+			<%= current_user.nickname %><br>
+			is winning the relationship
+		<% elsif current_user.total_points < current_partner.total_points %>
+			<%= current_partner.nickname %><br>
+			is winning the relationship
+		<% end %>
+		</h1>
 		
 
 
