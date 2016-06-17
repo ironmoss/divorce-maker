@@ -4,9 +4,11 @@ class Incident < ActiveRecord::Base
   belongs_to :relationship
 
   validates :category, presence: true
-  validates :description, presence: true
+  validates :description, presence: true,
+                          length: { maximum: 120 }
   validates :status, presence: true
 
+  before_save :calculate_points
 
   DID = 10
   REMEMBERED_TO = 10
@@ -26,10 +28,12 @@ class Incident < ActiveRecord::Base
   LOST = 5
   BROKE = 5
   CHEATED = 200
-  DIDNT_LISTEN = 15
+  DID_NOT_LISTEN = 15
   LIED_ABOUT = 30
   TOOK = 15
 
+  POSITIVE_MULTIPLIER = 0.75
+  NEGATIVE_MULTIPLIER = 1.25
 
   POSITIVE = {
     did: DID,
@@ -52,9 +56,21 @@ class Incident < ActiveRecord::Base
     lost: LOST,
     broke: BROKE,
     cheated: CHEATED,
-    didnt_listen: DIDNT_LISTEN,
+    do_not_listen: DID_NOT_LISTEN,
     lied_about: LIED_ABOUT,
-    took: TOOK,
+    took: TOOK
   }
+
+  def calculate_points
+    if status == "negative"
+      penalty = NEGATIVE[category.to_sym]
+      occurences = Incident.where(user_id: user_id, category: category).count
+      self.calculated_points = -(penalty * NEGATIVE_MULTIPLIER**occurences)
+    elsif status == "positive"
+      penalty = POSITIVE[category.to_sym]
+      occurences = Incident.where(user_id: user_id, category: category).count
+      self.calculated_points = penalty * POSITIVE_MULTIPLIER**occurences
+    end
+  end
 
 end
