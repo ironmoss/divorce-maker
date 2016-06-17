@@ -4,7 +4,7 @@
    }
 
  .rounding {
-<<<<<<< HEAD
+
   border-radius:7px; 
   padding:10px;
  }
@@ -21,12 +21,8 @@
  .button-and-text-alignment {
  	
  }
-=======
-    border-radius:7px; 
-    padding:10px;
- }
 
  form {
     display: inline;
 }
->>>>>>> 3a838337cd6c9141c427d6b56b3fe1fb74f0c352
+
