@@ -3,6 +3,11 @@ class Incident < ActiveRecord::Base
   belongs_to :user
   belongs_to :relationship
 
+  validates :category, presence: true
+  validates :description, presence: true
+  validates :status, presence: true
+  validates :calculated_points, presence: true
+
 
     DID = 10
     REMEMBERED_TO = 10
