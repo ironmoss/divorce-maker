@@ -1,17 +1,22 @@
 <div class="row">
-	<div class="col-md-4" style="background-color: green">left graph
-		<%= total_points(current_user) %>
+	<div class="col-md-4" style="background-color: green">
+		<h1><%= current_user.nickname %></h1>
+		left graph
+		
 	</div>
 
-	<div class="col-md-4" style= "background-color: red">winner text
-		<%= winner(current_user, other_user)%>
+	<div class="col-md-4" style= "background-color: red">
+		display who is winning
+		
+
+
 	</div>
 
-	<div class="col-md-4" style= "background-color: yellow">right graph
-		<%= total_points(other_user) %>
+	<div class="col-md-4" style= "background-color: yellow">
+		<h1><%= current_relationship.user2.nickname %></h1>
+			right graph
 	</div>
 </div>
-
 
 <div class="row">
 	<div class="col-md-4" style= "background-color: grey">timeline
