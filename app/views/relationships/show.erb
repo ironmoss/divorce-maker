@@ -1,3 +1,5 @@
+
+
 <div class="row">
 	<div class="col-md-4">
 		<div class="bg-info rounding">
@@ -6,7 +8,7 @@
 	  		<i class="fa fa-bookmark fa-stack-2x text-success"></i><strong class="fa-stack-1x calendar-text fa-inverse"><%= current_user.total_points %></strong>
 			</span>
 			<br>
-				left graph
+				<%= bar_chart Incident.where(user_id: current_user.id).group(:category).sum(:calculated_points) %>
 		</div>
 		
 	</div>
@@ -32,7 +34,7 @@
 	  		<i class="fa fa-bookmark fa-stack-2x text-success"></i><strong class="fa-stack-1x calendar-text fa-inverse"><%= current_partner.total_points %></strong>
 			</span>
 			<br>
-				right graph
+				<%= bar_chart Incident.where(user_id: current_partner.id).group(:category).sum(:calculated_points) %>
 		</div>
 	</div>
 </div>
