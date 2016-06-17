@@ -40,3 +40,6 @@ get '/relationships/:id' do
   erb :'relationships/show'
 end
 
+get '/relationships/new_kiss' do
+  erb :'/relationships/new_kiss/index'
+end

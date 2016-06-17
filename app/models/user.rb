@@ -11,5 +11,6 @@ class User < ActiveRecord::Base
 
   validates :nickname, presence: true
   validates :email, presence: true
+  validates :password, presence: true
 
 end

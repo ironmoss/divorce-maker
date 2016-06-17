@@ -1,0 +1,20 @@
+<h1>Send a Kiss</h1>
+
+<h3> Username here </h3>
+<div margin: auto>
+<label class = "form-inline">
+  <div class="form-group">
+    <label>Category:</label>
+      <select class="form-control" name="category">
+        <% Incident::POSITIVE.keys.each do |key| %>
+        <option value="<%= key %>"><%= key.to_s.gsub(/_/, ' ') %></option>
+        <% end %>
+      </select>
+    </div>
+    <div class = "form-group">
+      <label for = "description">Description:</label>
+      <textarea class = "form-control" rows = "1" placeholder = "enter description of incident" required></textarea>
+   </div>
+  </div>
+</div>
+</form>

@@ -4,6 +4,7 @@ class AddUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.string :nickname
       t.string :email
+      t.string :password
       t.string :twitter
       t.timestamps null: false
     end

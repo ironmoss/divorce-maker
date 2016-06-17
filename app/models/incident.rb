@@ -6,30 +6,29 @@ class Incident < ActiveRecord::Base
   validates :category, presence: true
   validates :description, presence: true
   validates :status, presence: true
-  validates :calculated_points, presence: true
 
 
-    DID = 10
-    REMEMBERED_TO = 10
-    FORGAVE_ME_FOR = 10
-    SAID_NICE_THINGS = 15
-    FOUND = 5
-    FIXED = 5
-    HELPED = 15
-    LISTENED = 15
-    WAS_HONEST_ABOUT = 20
-    BOUGHT = 10
+  DID = 10
+  REMEMBERED_TO = 10
+  FORGAVE_ME_FOR = 10
+  SAID_NICE_THINGS = 15
+  FOUND = 5
+  FIXED = 5
+  HELPED = 15
+  LISTENED = 15
+  WAS_HONEST_ABOUT = 20
+  BOUGHT = 10
 
-    REFUSED_TO = 10
-    FORGOT_TO = 10
-    BLAMED_ME_FOR = 10
-    SAID_HURTFUL_THINGS = 20
-    LOST = 5
-    BROKE = 5
-    CHEATED = 200
-    DIDNT_LISTEN = 15
-    LIED_ABOUT = 30
-    TOOK = 15
+  REFUSED_TO = 10
+  FORGOT_TO = 10
+  BLAMED_ME_FOR = 10
+  SAID_HURTFUL_THINGS = 20
+  LOST = 5
+  BROKE = 5
+  CHEATED = 200
+  DIDNT_LISTEN = 15
+  LIED_ABOUT = 30
+  TOOK = 15
 
 
   POSITIVE = {
