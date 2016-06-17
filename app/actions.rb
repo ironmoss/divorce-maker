@@ -1,4 +1,5 @@
 # Homepage (Root path)
+require 'chartkick'
 
 helpers do
 	def current_user
