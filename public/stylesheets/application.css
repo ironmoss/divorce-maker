@@ -127,3 +127,13 @@ form {
 .title-color {
   background-color: white;
 }
+
+.img-kiss {
+  height: 200px;
+  width: 350px;
+}
+
+.img-yell {
+  height: 200px;
+  width: 400px;
+}
