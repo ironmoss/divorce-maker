@@ -76,10 +76,14 @@
 	text-align: center;
 }
 
-.send_header {
+.dropdown_layout {
     font-size: 30px;
     border-radius:7px;
     padding:10px;
     border: 2px #e4e4e4 solid;
     text-align: center;
+}
+::-webkit-input-placeholder {
+   color: #808080;
+   text-align: center;
 }

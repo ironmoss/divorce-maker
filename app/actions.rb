@@ -35,7 +35,7 @@ get '/relationships' do
 	erb :'relationships/index'
 end
 
-get '/relationships/forget' do 
+get '/relationships/forget' do
 	erb :'forget-page/forget-page'
 end
 

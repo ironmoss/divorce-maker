@@ -10,7 +10,7 @@
 			<br>
 				<%= bar_chart Incident.where(user_id: current_user.id).group(:category).order(:calculated_points).limit(6).sum(:calculated_points) %>
 		</div>
-		
+
 	</div>
 
 	<div class="col-md-4">
@@ -24,13 +24,13 @@
 				is winning the relationship
 			<% end %>
 			</h1>
-			
+
 			<% if current_relationship.winner == current_user %>
 				<h3>Maintain your moral high ground</h3>
 			<% else %>
 				<h3>Gain the  moral high ground</h3>
 			<% end %>
-			
+
 			<button type="button" class="btn btn-default btn-lg">
         <a href="<%= "/relationships/" + current_relationship.id.to_s + "/new_kiss"%>">
           <span class="fa-stack">
@@ -81,16 +81,16 @@
 				</div>
 
 				<div class="col-md-4">
-				
+
 					<div class="bg-<% if (incident.user_id == current_user.id)%>info<% else %>warning<% end %> rounding text-properties">
 						<span class="fa-stack fa-lg">
 							<i class="fa fa-lg fa-<% if incident.status == "positive" %>heart fa-stack-1x text-danger<% elsif incident.status == "negative" %>heart-o fa-stack-1x text-danger"></i><i class="fa fa-bolt fa-stack-1x text-danger<% elsif incident.status == "forgiven" %>heart-o text-muted<% end %>" aria-hidden="true"></i>
-						</span>	
-						<%= incident.user.nickname %> <%= incident.category.gsub(/_/, ' ') %> <%= incident.description %>
+						</span>
+						<%= incident.user.nickname %> <%= incident.category %> <%= incident.description %>
 						<br>
 						<small class="text-muted"><%= incident.created_at.strftime("%A %d %B %Y %l:%M:%S %P") %></small>
 					</div>
-					
+
 				</div>
 				<div class="col-md-4"></div>
 			</div>
