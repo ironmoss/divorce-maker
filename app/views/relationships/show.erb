@@ -8,7 +8,7 @@
 	  		<i class="fa fa-bookmark fa-stack-2x text-success"></i><strong class="fa-stack-1x calendar-text fa-inverse"><%= current_user.total_points %></strong>
 			</span>
 			<br>
-				<%= bar_chart Incident.where(user_id: current_user.id).group(:category).sum(:calculated_points) %>
+				<%= bar_chart Incident.where(user_id: current_user.id).group(:category).order(:calculated_points).limit(6).sum(:calculated_points) %>
 		</div>
 		
 	</div>
@@ -32,7 +32,7 @@
 			<% end %>
 			
 			<button type="button" class="btn btn-default btn-lg">
-        <a href="/relationships/new_kiss">
+        <a href="<%= "/relationships/" + current_relationship.id.to_s + "/new_kiss"%>">
           <span class="fa-stack">
             <i class="fa fa-heart fa-stack-2x text-danger" aria-hidden="true"></i>
             <i class="fa fa-plus fa-stack-1x text-primary" aria-hidden="true"></i>
@@ -42,7 +42,7 @@
       </button>
 
 			<button type="button" class="btn btn-default btn-lg">
-        <a href="/relationships/new_yell">
+        <a href="<%= "/relationships/" + current_relationship.id.to_s + "/new_yell"%>">
           <span class="fa-stack">
             <i class="fa fa-heart-o fa-stack-2x text-danger" aria-hidden="true"></i>
             <i class="fa fa-minus fa-stack-1x text-primary" aria-hidden="true"></i>
@@ -60,7 +60,7 @@
 	  		<i class="fa fa-bookmark fa-stack-2x text-success"></i><strong class="fa-stack-1x calendar-text fa-inverse"><%= current_partner.total_points %></strong>
 			</span>
 			<br>
-				<%= bar_chart Incident.where(user_id: current_partner.id).group(:category).sum(:calculated_points) %>
+				<%= bar_chart Incident.where(user_id: current_partner.id).group(:category).order(:calculated_points).limit(6).sum(:calculated_points) %>
 		</div>
 	</div>
 </div>
@@ -68,26 +68,31 @@
 <div class="incident">
 	<% @incidents.each do |incident| %>
 		<div class="row" style="margin-bottom:7px;">
-								<div class="col-md-4 col-xs-2 text-right button-properties">
-									<% if my_incident?(incident.id) && (incident.user_id == current_partner.id) && (incident.status == "negative") %>
-										<a href="/forgive"><input class="btn btn-default" type="submit" value="forgive" /></a>
-										<input class="btn btn-default" type="submit" value="forget" />
-									<% end %>
-								</div>
+				<div class="col-md-4 col-xs-2 text-right button-properties">
+					<% if my_incident?(incident.id) && (incident.user_id == current_partner.id) && (incident.status == "negative") %>
+						<div class="container-fluid">
+								<form action="/relationships/forgive" method="post">
+									<input type="hidden" name="id" value="<%= incident.id %>">
+									<input class="btn btn-default" type="submit" value="forgive" />
+								</form>
+							<a href="/forget"><input class="btn btn-default" type="submit" value="forget" /></a>
+						</div>
+					<% end %>
+				</div>
 
-								<div class="col-md-4">
-								
-									<div class="bg-<% if (incident.user_id == current_user.id)%>info<% else %>warning<% end %> rounding text-properties">
-										<span class="fa-stack fa-lg">
-											<i class="fa fa-lg fa-<% if incident.status == "positive" %>heart fa-stack-1x text-danger<% elsif incident.status == "negative" %>heart-o fa-stack-1x text-danger"></i><i class="fa fa-bolt fa-stack-1x text-danger<% elsif incident.status == "forgiven" %>heart-o text-muted<% end %>" aria-hidden="true"></i>
-			  						</span>	
-										<%= incident.user.nickname %> <%= incident.category.gsub(/_/, ' ') %> <%= incident.description %>
-										<br>
-										<small class="text-muted"><%= incident.created_at.strftime("%A %d %B %Y") %></small>
-									</div>
-									
-								</div>
-								<div class="col-md-4"></div>
+				<div class="col-md-4">
+				
+					<div class="bg-<% if (incident.user_id == current_user.id)%>info<% else %>warning<% end %> rounding text-properties">
+						<span class="fa-stack fa-lg">
+							<i class="fa fa-lg fa-<% if incident.status == "positive" %>heart fa-stack-1x text-danger<% elsif incident.status == "negative" %>heart-o fa-stack-1x text-danger"></i><i class="fa fa-bolt fa-stack-1x text-danger<% elsif incident.status == "forgiven" %>heart-o text-muted<% end %>" aria-hidden="true"></i>
+						</span>	
+						<%= incident.user.nickname %> <%= incident.category.gsub(/_/, ' ') %> <%= incident.description %>
+						<br>
+						<small class="text-muted"><%= incident.created_at.strftime("%A %d %B %Y %l:%M:%S %P") %></small>
+					</div>
+					
+				</div>
+				<div class="col-md-4"></div>
 			</div>
 	<% end %>
 </div>

@@ -31,22 +31,15 @@ form {
 }
 
 .top-bar {
-  /*height: 150px;*/
-  /*background-color: #EF6363;*/
   font-size: 80px;
   text-align: center;
-  /*line-height: 150px;*/
-  /*margin-top: -20px;*/
   color: white;
 }
 
 .price {
-  /*height: 300px;*/
-  /*background-color: #EF6363;*/
   font-size: 40px;
   text-align: center;
   color: white;
-  /*margin-top: 10px;*/
 }
 
 .list-box {
@@ -68,6 +61,7 @@ form {
 	border-radius: 10px; 
   padding-bottom: 10px;
   text-align: center;
+
 }
 
 #pro-button {
@@ -81,6 +75,8 @@ form {
 	text-align: center;
   background-color: white;
   margin-top: -20px;
+
+
 }
 
 .send_header {
@@ -113,10 +109,6 @@ form {
   font-size: 24px;
   padding-top: 6px;
   margin-bottom: 15px;
-  /*margin-top: 15px;
-  padding:10px;
-  border-radius:5px;
-  */
 }
 
 .list-group {
@@ -124,16 +116,10 @@ form {
   margin-bottom: 30px;
 }
 
-/*.extras-title {
-  color: #45566E;
 
-}*/
 
 .title-color {
   background-color: white;
 }
 
-/*.list-box {*/
-  /*margin-top: 40px;*/
 
-/*}*/

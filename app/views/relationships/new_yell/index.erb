@@ -25,12 +25,7 @@
 	<% @incidents.each do |incident| %>
 		<div class="row" style="padding: 10px;">
 						<div class="col-md-4 col-xs-2 text-right">
-							<% if my_incident?(incident.id) && (incident.user_id == current_partner.id) && (incident.status == "negative") %>
-								<a href="/forgive"><input class="btn btn-default" type="submit" value="forgive" /></a>
-								<input class="btn btn-default" type="submit" value="forget" />
-							<% end %>
 						</div>
-
 						<div class="col-md-4 col-xs-6">
 							<div class="bg-<% if (incident.user_id == current_user.id)%>info<% else %>warning<% end %> rounding">
 								<span class="fa-stack fa-lg">
@@ -41,7 +36,6 @@
 								<small class="text-muted"><%= incident.created_at.strftime("%A %d %B %Y") %></small>
 							</div>
 						</div>
-
 			</div>
 	<% end %>
 </div>
