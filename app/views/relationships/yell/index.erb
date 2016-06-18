@@ -1,11 +1,11 @@
-<h1>Send a Kiss</h1>
+<h1>Send a Yell</h1>
 
 <div= "form">
-  <form method="POST" action="new_kiss">
+  <form method="POST" action="yell">
   <div class="dropdown bg-warning rwell-lg send_header col-md-offset-3 col-md-6"><%=  current_partner.nickname %>
     <label for="category"></label>
     <select class="select btn-lg btn-primary" data-style="btn-info" name= "category">
-      <% Incident::POSITIVE.keys.each do |key| %>
+      <% Incident::NEGATIVE.keys.each do |key| %>
         <option value="<%= key %>"><%= key %></option>
       <% end %>
     </select>
@@ -13,23 +13,19 @@
   <div>
     <label for="description"></label>
     <input class="form-control well" name="description" type="textarea" placeholder="describe action here">
-
+  </div>
+  <div>
     <a href="#"><button type="submit" class="btn btn-primary">Submit</button>
   </div>
 </form>
 </div>
-
+<br>
 <div class="incident">
-  <%@incidents = Incident.where(relationship_id: params[:id]).where(status: "positive").order("created_at").limit(5)%>
+  <%@incidents = Incident.where(relationship_id: params[:id]).where(status: "negative").order("created_at").limit(5)%>
 	<% @incidents.each do |incident| %>
 		<div class="row" style="padding: 10px;">
 						<div class="col-md-4 col-xs-2 text-right">
-							<% if my_incident?(incident.id) && (incident.user_id == current_partner.id) && (incident.status == "negative") %>
-								<a href="/forgive"><input class="btn btn-default" type="submit" value="forgive" /></a>
-								<input class="btn btn-default" type="submit" value="forget" />
-							<% end %>
 						</div>
-
 						<div class="col-md-4 col-xs-6">
 							<div class="bg-<% if (incident.user_id == current_user.id)%>info<% else %>warning<% end %> rounding">
 								<span class="fa-stack fa-lg">
@@ -40,7 +36,6 @@
 								<small class="text-muted"><%= incident.created_at.strftime("%A %d %B %Y") %></small>
 							</div>
 						</div>
-
 			</div>
 	<% end %>
 </div>

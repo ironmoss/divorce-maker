@@ -4,8 +4,7 @@ require 'chartkick'
 helpers do
 	def current_user
 		#gets the current user from the session
-		@current_user ||= User.find(1)
-		#nickname: session["username"] if session["nickname"]
+    @current_user ||= User.find_by username: session["username"] if session["username"] 
 	end
 
 	def current_partner
@@ -13,7 +12,7 @@ helpers do
 	end
 
 	def current_relationship
-		@current_relationship ||= Relationship.find(1)
+		@current_relationship ||= Relationship.find relationship: session["relationship"]
 
 	end
 
@@ -35,11 +34,26 @@ get '/relationships' do
 	erb :'relationships/index'
 end
 
+get '/relationships/:id/:username' do
+  @relationship = Relationship.find id: params[:id]
+  @user = User.find_by username: params[:username]
+    session["username"] = @user.username
+    session["relationship"] = @relationship.id
+    redirect '/relationships/#{current_relationship.id}'
+  end
+end
+
+post '/logout' do
+  session["username"] = nil
+  session["relationship"] = nil
+  redirect '/'
+end
+
 get '/relationships/forget' do 
 	erb :'relationships/forget'
 end
 
-get '/relationships/:id' do
+get '/relationships/:id/:username' do
 	@relationship = Relationship.find params[:id]
 	@incidents = Incident.where(relationship_id: params[:id]).order("created_at desc")
   erb :'relationships/show'
@@ -57,15 +71,15 @@ post '/relationships/forgive' do
   end
 end
 
-get '/relationships/:id/new_kiss' do
-  erb :'/relationships/new_kiss/index'
+get '/relationships/:id/:username/kiss' do
+  erb :'/relationships/kiss/index'
 end
 
-get '/relationships/:id/new_yell' do
-  erb :'/relationships/new_yell/index'
+get '/yell' do
+  erb :'/relationships/yell/index'
 end
 
-post '/relationships/:id/new_kiss' do
+post '/kiss' do
 	@incident = current_relationship.incidents.build(
 		user_id: current_partner.id,
 		relationship_id: current_relationship.id,
@@ -74,13 +88,13 @@ post '/relationships/:id/new_kiss' do
 		status: "positive"
 	  )
 		if @incident.save
-	  	redirect 'relationships/1'
+	  	redirect "relationships/#{current_relationship.id}"
 		else
 			erb :index
 		end
 end
 
-post '/relationships/:id/new_yell' do
+post '/relationships/:id/:username/yell' do
 	@incident = current_relationship.incidents.build(
 		user_id: current_partner.id,
 		relationship_id: current_relationship.id,
@@ -89,7 +103,7 @@ post '/relationships/:id/new_yell' do
 		status: "negative"
 	  )
 		if @incident.save
-	  	redirect 'relationships/1'
+	  	redirect "relationships/#{current_relationship.id}"
 		else
 			erb :index
 		end
