@@ -83,7 +83,7 @@
 			  						</span>	
 										<%= incident.user.nickname %> <%= incident.category.gsub(/_/, ' ') %> <%= incident.description %>
 										<br>
-										<small class="text-muted"><%= incident.created_at.strftime("%A %d %B %Y") %></small>
+										<small class="text-muted"><%= incident.created_at.strftime("%A %d %B %Y %l:%M:%S %P") %></small>
 									</div>
 									
 								</div>
