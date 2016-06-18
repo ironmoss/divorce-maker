@@ -26,6 +26,56 @@
     display: inline;
 }
 
+
+.margin-top{
+	height: 100px;
+	background-color: grey;
+	padding-top: 20px;
+	padding-right: 40px;
+
+}
+
+.top-bar {
+	height: 200px;
+	background-color: #FCF8E3;
+	font-size: 80px;
+	text-align: center;
+	line-height: 150px;
+
+}
+
+.middle-bar {
+	height: 150px;
+	background-color: #FCF8E3;
+	text-align: center ;
+}
+
+#pro-button-lg {
+	padding: 18px 28px;
+  font-size: 22px;
+  border-radius: 2px; 
+	border-radius: 10px; 
+  
+}
+
+#pro-button {
+  padding: 15px 20px;
+  font-size: 32px;
+  border-radius: 8px;
+}
+
+.bottom-bar {
+	height: 100px;
+	background-color: #FCF8E3;
+	font-size: 40px;
+	text-align: center;
+
+}
+
+.margin-bottom {
+	text-align: center;
+
+
 .send_header {
     font-size: 30px;
     border-radius:7px;
