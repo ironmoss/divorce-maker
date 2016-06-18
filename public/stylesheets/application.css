@@ -28,7 +28,7 @@
 
 .margin-top{
 	height: 100px;
-	background-color: #FCF8E3;
+	background-color: grey;
 	padding-top: 20px;
 	padding-right: 40px;
 
@@ -49,30 +49,29 @@
 	text-align: center ;
 }
 
-.btn-lg {
-    padding: 18px 28px;
-    font-size: 22px;
-    border-radius: 2px;
+#pro-button-lg {
+	padding: 18px 28px;
+  font-size: 22px;
+  border-radius: 2px; 
+	border-radius: 10px; 
+  
 }
 
-
-.btn-default {
-    padding: 15px 20px;
-    font-size: 32px;
-    border-radius: 8px;
+#pro-button {
+  padding: 15px 20px;
+  font-size: 32px;
+  border-radius: 8px;
 }
 
 .bottom-bar {
-
-	height: 450px;
+	height: 100px;
 	background-color: #FCF8E3;
 	font-size: 40px;
 	text-align: center;
 
 }
 
-
-
-.pro-version {
+.margin-bottom {
+	text-align: center;
 
 }
