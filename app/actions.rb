@@ -47,8 +47,14 @@ end
 
 post '/relationships/forgive' do
 	@incident = Incident.find params[:id]
-	@forgive = @incident.update(status: 'forgiven')
+
+	if @incident.update(
+		status: 'forgiven',
+		calculated_points: 0)
     redirect "/relationships/#{current_relationship.id}"
+  else
+  	erb :'relationships/show'
+  end
 end
 
 get '/relationships/:id/new_kiss' do
