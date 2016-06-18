@@ -25,7 +25,7 @@ form {
 }
 
 .hero {
-  background-color: #EF6363; 
+  background-color: #EF6363;
   height: 450px;
   margin-top: -20px;
 }
@@ -43,7 +43,7 @@ form {
 }
 
 .list-box {
-  background-color: #45566E; 
+  background-color: #45566E;
   height: 200px;
   width: 100px;
 }
@@ -57,8 +57,8 @@ form {
 
 #pro-button-lg {
   font-size: 22px;
-  border-radius: 2px; 
-	border-radius: 10px; 
+  border-radius: 2px;
+	border-radius: 10px;
   padding-bottom: 10px;
   text-align: center;
 
@@ -79,13 +79,19 @@ form {
 
 }
 
-.send_header {
+.dropdown_layout {
     font-size: 30px;
     border-radius:7px;
     padding:10px;
     border: 2px #e4e4e4 solid;
     text-align: center;
 }
+
+::-webkit-input-placeholder {
+   color: #808080;
+   text-align: center;
+}
+
 
 .features-table {
   background-color: #45566E;
@@ -121,5 +127,3 @@ form {
 .title-color {
   background-color: white;
 }
-
-
