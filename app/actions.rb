@@ -28,7 +28,7 @@ helpers do
 end
 
 get '/' do
-  erb :index
+	erb :'relationships/index'
 end
 
 get '/relationships' do
@@ -74,7 +74,7 @@ post '/relationships/:id/new_kiss' do
 		status: "positive"
 	  )
 		if @incident.save
-	  	redirect 'relationships/1'
+	  	redirect 'relationships/' + current_relationship.id.to_s
 		else
 			erb :index
 		end
@@ -89,7 +89,7 @@ post '/relationships/:id/new_yell' do
 		status: "negative"
 	  )
 		if @incident.save
-	  	redirect 'relationships/1'
+	  	redirect 'relationships/' + current_relationship.id.to_s
 		else
 			erb :index
 		end
