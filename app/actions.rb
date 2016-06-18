@@ -45,12 +45,6 @@ get '/relationships' do
 	erb :'relationships/index'
 end
 
-# get '/relationships/:id/:nickname' do
-#   @relationship = Relationship.find(params[:id])
- 
-#     redirect "/relationships/#{params[:id]}/#{params[:nickname]}"
-# end
-
 get '/logout' do
   session["nickname"] = nil
   session["relationship"] = nil
