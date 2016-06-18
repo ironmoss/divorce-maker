@@ -17,7 +17,6 @@
 }
 
 .button-and-text-alignment {
-
 }
 
 form {
@@ -61,22 +60,18 @@ form {
 	border-radius: 10px; 
   padding-bottom: 10px;
   text-align: center;
-
 }
 
 #pro-button {
   padding: 15px 20px;
   font-size: 32px;
   border-radius: 8px;
-
 }
 
 .margin-bottom {
 	text-align: center;
   background-color: white;
   margin-top: -20px;
-
-
 }
 
 .send_header {
@@ -95,7 +90,6 @@ form {
   margin-bottom: -50px;
   margin-top: -245px;
   color: #45566E;
-
 }
 
 .features-title {
@@ -116,10 +110,121 @@ form {
   margin-bottom: 30px;
 }
 
-
-
 .title-color {
   background-color: white;
 }
 
+.text {
+  text-align: center;
+}
 
+.bookmark-text {
+  color: white;
+  font-size: 30px;
+  text-align: top;
+  margin-top: -6px;
+}
+
+.bookmark-styling {
+  background-color: white;
+  width: 85px;
+  height: 90px;
+  /*padding: 10px, 10px, 10px, 10px;*/
+  /*vertical-align: top;*/
+  display: inline-block;
+  vertical-align: middle;
+
+  border: solid 1px #ff0000;
+  text-align: center;
+  margin: 0px auto;
+  width: 100px;
+}
+
+.bg-info-no-chart {
+   display: inline-block;
+   width: 450px;
+}
+
+.top-nickname {
+  background-color: white;
+  /*width: 200px;*/
+  height: 90px;
+
+  border: solid 1px #ff0000;
+  text-align: center;
+  margin: 0px auto;
+  width: 250px;
+}
+
+.bookmark-styling {
+  
+  
+}
+
+
+
+   
+
+
+
+
+/*.another-text{
+  text-align: top;
+}*/
+
+span.another-text  {
+  margin-left: 2%;
+  font-size: 0.9em;
+}
+
+span.bookmark-styling {
+    display:inline-block;
+    font-size: 1.2em;
+    vertical-align: middle;
+}
+
+
+
+/*.fa-stack-2x {
+  background-color: white;
+}*/
+
+/*=== relationships page ===
+
+/*.current-user-nickname {
+  font-size: 30px;
+*/
+/*}*/
+
+/*h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}*/
+
+/*.relationship-winner {
+
+  font-size: 30px;
+  text-align: center;
+}
+*/
+/*.nickname {
+  font-size: 60px;
+  margin-top: 30px;
+
+}
+*/
+/*.winning {
+  font-size: 20px;
+
+}*/
+
+/*font-weight: bold;*/
+
+/*.partner-nickname {
+  font-size: 30px;
+}
+
+*/
