@@ -53,9 +53,9 @@
 #pro-button-lg {
 	padding: 18px 28px;
   font-size: 22px;
-  border-radius: 2px; 
-	border-radius: 10px; 
-  
+  border-radius: 2px;
+	border-radius: 10px;
+
 }
 
 #pro-button {
@@ -74,7 +74,7 @@
 
 .margin-bottom {
 	text-align: center;
-
+}
 
 .send_header {
     font-size: 30px;
