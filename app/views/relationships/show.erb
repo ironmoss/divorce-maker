@@ -32,7 +32,7 @@
 			<% end %>
 			
 			<button type="button" class="btn btn-default btn-lg">
-        <a href="<%= "/relationships/" + current_relationship.id.to_s + "/new_kiss"%>">
+        <a href='<%= "/relationships/#{current_relationship.id}/#{current_user.nickname}/kiss" %>'>
           <span class="fa-stack">
             <i class="fa fa-heart fa-stack-2x text-danger" aria-hidden="true"></i>
             <i class="fa fa-plus fa-stack-1x text-primary" aria-hidden="true"></i>
@@ -42,7 +42,7 @@
       </button>
 
 			<button type="button" class="btn btn-default btn-lg">
-        <a href="<%= "/relationships/" + current_relationship.id.to_s + "/new_yell"%>">
+        <a href="<%= "/relationships/#{current_relationship.id}/#{current_user.nickname}/yell" %>">
           <span class="fa-stack">
             <i class="fa fa-heart-o fa-stack-2x text-danger" aria-hidden="true"></i>
             <i class="fa fa-minus fa-stack-1x text-primary" aria-hidden="true"></i>
