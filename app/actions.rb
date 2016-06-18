@@ -35,8 +35,13 @@ get '/relationships' do
 	erb :'relationships/index'
 end
 
+
 get '/relationships/forget' do
 	erb :'forget-page/forget-page'
+
+get '/relationships/forget' do
+	erb :'relationships/forget'
+
 end
 
 get '/relationships/:id' do

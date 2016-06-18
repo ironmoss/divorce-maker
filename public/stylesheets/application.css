@@ -1,60 +1,66 @@
 .incident {
-     max-height: 500px;
-     overflow-y: scroll;
-   }
-
- .rounding {
-
-  border-radius:7px;
-  padding:10px;
- }
-
- .button-properties {
- 	padding: 25px;
- }
-
- .text-properties {
- 	height: 100px;
-
- }
-
- .button-and-text-alignment {
-
- }
-
- form {
-    display: inline;
+  max-height: 500px;
+  overflow-y: scroll;
 }
 
+.rounding {
+  border-radius:7px;
+  padding:10px;
+}
 
-.margin-top{
-	height: 100px;
-	background-color: grey;
-	padding-top: 20px;
-	padding-right: 40px;
+.button-properties {
+ 	padding: 25px;
+}
 
+.text-properties {
+ 	height: 100px;
+}
+
+.button-and-text-alignment {
+
+}
+
+form {
+  display: inline;
+}
+
+.hero {
+  background-color: #EF6363;
+  height: 450px;
+  margin-top: -20px;
 }
 
 .top-bar {
-	height: 200px;
-	background-color: #FCF8E3;
-	font-size: 80px;
-	text-align: center;
-	line-height: 150px;
-
+  font-size: 80px;
+  text-align: center;
+  color: white;
 }
 
+.price {
+  font-size: 40px;
+  text-align: center;
+  color: white;
+}
+
+.list-box {
+  background-color: #45566E;
+  height: 200px;
+  width: 100px;
+}
+
+
 .middle-bar {
-	height: 150px;
-	background-color: #FCF8E3;
-	text-align: center ;
+  height: 125px;
+  background-color: red;
+  text-align: center;
 }
 
 #pro-button-lg {
-	padding: 18px 28px;
   font-size: 22px;
   border-radius: 2px;
 	border-radius: 10px;
+  padding-bottom: 10px;
+  text-align: center;
 
 }
 
@@ -62,18 +68,15 @@
   padding: 15px 20px;
   font-size: 32px;
   border-radius: 8px;
-}
-
-.bottom-bar {
-	height: 100px;
-	background-color: #FCF8E3;
-	font-size: 40px;
-	text-align: center;
 
 }
 
 .margin-bottom {
 	text-align: center;
+  background-color: white;
+  margin-top: -20px;
+
+
 }
 
 .dropdown_layout {
@@ -83,7 +86,44 @@
     border: 2px #e4e4e4 solid;
     text-align: center;
 }
+
 ::-webkit-input-placeholder {
    color: #808080;
    text-align: center;
+}
+
+
+.features-table {
+  background-color: #45566E;
+  height: 445px;
+  width: 500px;
+  border-radius: 5px;
+  margin-bottom: -50px;
+  margin-top: -245px;
+  color: #45566E;
+
+}
+
+.features-title {
+  height: 50px;
+  background-color: #C9D6DE;
+}
+
+.title {
+  text-align: center;
+  background-color: #C9D6DE;
+  font-size: 24px;
+  padding-top: 6px;
+  margin-bottom: 15px;
+}
+
+.list-group {
+  width: 460px;
+  margin-bottom: 30px;
+}
+
+
+
+.title-color {
+  background-color: white;
 }
