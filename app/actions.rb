@@ -4,7 +4,7 @@ require 'chartkick'
 helpers do
 	def current_user
 		#gets the current user from the session
-		@current_user ||= User.find(1)
+		@current_user ||= User.find(2)
 		#nickname: session["username"] if session["nickname"]
 	end
 
@@ -28,11 +28,16 @@ helpers do
 end
 
 get '/' do
-	erb :'relationships/index'
+  erb :index
 end
 
 get '/relationships' do
 	erb :'relationships/index'
+end
+
+
+get '/relationships/forget' do
+	erb :'forget-page/forget-page'
 end
 
 get '/relationships/forget' do
@@ -75,7 +80,7 @@ post '/relationships/:id/new_kiss' do
 		status: "positive"
 	  )
 		if @incident.save
-  	redirect "/relationships/#{params[:id]}"
+	  	redirect 'relationships/1'
 		else
 			erb :index
 		end
@@ -89,9 +94,9 @@ post '/relationships/:id/new_yell' do
 	  description: params[:description],
 		status: "negative"
 	  )
-	if @incident.save
-  	redirect "/relationships/#{params[:id]}"
-	else
-		erb :index
-	end
+		if @incident.save
+	  	redirect 'relationships/1'
+		else
+			erb :index
+		end
 end
