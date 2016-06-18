@@ -1,16 +1,29 @@
 <div class="row">
   <div class="col-md-12">
-    <img class= "img-yell col-md-offset-4" alt="Mad Simon's cat" src="/images/simonscat_angry.png">
+    <img class= "img-kiss col-md-offset-5" alt= "kissing Simon's cat" src="/images/simonscat_kiss.png">
     <!-- Simon's cat image copyright simonscat.com, used for demo purposes only, please don't sue us! -->
   </div>
 </div>
 
 <div= "form">
-  <form method="POST" action="new_yell">
-    <div class="dropdown bg-warning rwell-lg dropdown_layout col-md-offset-3 col-md-6"><%=  current_partner.nickname %>
 
-      <select class="select btn-lg btn-danger" data-style="btn-info" name= "category">
-        <% Incident::NEGATIVE.keys.each do |key| %>
+  <form method="POST" action="kiss">
+  <div class="dropdown bg-warning rwell-lg send_header col-md-offset-3 col-md-6"><%=  current_partner.nickname %>
+
+    <label for="category"></label>
+    <select class="select btn-lg btn-info" data-style="btn-info" name= "category">
+      <% Incident::POSITIVE.keys.each do |key| %>
+        <option value="<%= key %>"><%= key %></option>
+      <% end %>
+    </select>
+
+  <div>
+    <label for="description"></label>
+    <input class="form-control well" name="description" type="textarea" placeholder= "describe incident here">
+  </div>
+
+      <select class="select btn-lg btn-info" data-style="btn-info" name= "category">
+        <% Incident::POSITIVE.keys.each do |key| %>
           <option value="<%= key %>"><%= key %></option>
         <% end %>
       </select>
@@ -21,7 +34,7 @@
       </div>
 
       <div>
-        <button type="submit" class="btn btn-danger col-md-2 col-md-offset-5">Submit</button>
+        <button type="submit" class="btn btn-info col-md-2 col-md-offset-5">Submit</button>
       </div>
 
     </div>
@@ -30,7 +43,7 @@
 
 <br>
 <div class="incident">
-  <%@incidents = Incident.where(relationship_id: params[:id]).where(status: "negative").where(user_id:        current_user.id).order("created_at").limit(5)%>
+  <%@incidents = Incident.where(relationship_id: params[:id]).where(status: "positive").where(user_id:        current_user.id).order("created_at").limit(5)%>
   <% @incidents.each do |incident| %>
     <div class="row" style="margin-bottom:7px;">
 
