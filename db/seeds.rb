@@ -11,7 +11,7 @@
 @relationship1 = Relationship.create!(user1_id: @shnookum.id, user2_id: @fuzzybear.id)
 @relationship2 = Relationship.create!(user1_id: @milly.id, user2_id: @bob.id)
 #incidents for couple 1
-# Incident.create!(relationship_id: "", category: "", description:, "", status: "", calculated_points: "")
+# Incident.create!(user_id: "", relationship_id: "", category: "", description:, "", status: "")
 Incident.create!(user_id: @relationship1.user2_id, relationship_id: @relationship1.id, category: "forgot", description: "to take out the garbage", status: "negative")
 Incident.create!(user_id: @relationship1.user2_id, relationship_id: @relationship1.id, category: "did not listen", description: "when I was telling him about my day.", status: "negative")
 Incident.create!(user_id: @relationship1.user1_id, relationship_id: @relationship1.id, category: "said hurtful things", description: "while yelling about something to do with her day", status: "negative")

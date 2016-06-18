@@ -6,15 +6,14 @@
     <label for="category"></label>
     <select class="select btn-lg btn-primary" data-style="btn-info" name= "category">
       <% Incident::POSITIVE.keys.each do |key| %>
-        <option value="<%= key.to_s.gsub(/_/, ' ') %>"><%= key.to_s.gsub(/_/, ' ') %></option>
+        <option value="<%= key %>"><%= key %></option>
       <% end %>
     </select>
   </div>
   <div>
     <label for="description"></label>
     <input class="form-control well" name="description" type="textarea" placeholder="describe action here">
-  </div>
-  <div>
+
     <a href="#"><button type="submit" class="btn btn-primary">Submit</button>
   </div>
 </form>
