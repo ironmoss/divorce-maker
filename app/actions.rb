@@ -47,7 +47,7 @@ post '/relationships/forgive' do
     redirect "/relationships/#{current_relationship.id}"
 end
 
-get '/relationships/new_kiss' do
+get '/relationships/:id/new_kiss' do
   erb :'/relationships/new_kiss/index'
 end
 
