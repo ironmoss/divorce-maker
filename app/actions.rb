@@ -125,5 +125,4 @@ post '/yell' do
 	else
 		erb :index
 	end
-
 end
