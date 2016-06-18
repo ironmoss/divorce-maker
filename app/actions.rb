@@ -35,10 +35,6 @@ get '/relationships' do
 	erb :'relationships/index'
 end
 
-
-get '/relationships/forget' do
-	erb :'forget-page/forget-page'
-
 get '/relationships/forget' do
 	erb :'relationships/forget'
 
@@ -79,7 +75,7 @@ post '/relationships/:id/new_kiss' do
 		status: "positive"
 	  )
 		if @incident.save
-	  	redirect 'relationships/' + current_relationship.id.to_s
+  	redirect "/relationships/#{params[:id]}"
 		else
 			erb :index
 		end
@@ -93,9 +89,9 @@ post '/relationships/:id/new_yell' do
 	  description: params[:description],
 		status: "negative"
 	  )
-		if @incident.save
-	  	redirect 'relationships/' + current_relationship.id.to_s
-		else
-			erb :index
-		end
+	if @incident.save
+  	redirect "/relationships/#{params[:id]}"
+	else
+		erb :index
+	end
 end
