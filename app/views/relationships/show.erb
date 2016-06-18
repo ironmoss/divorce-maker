@@ -75,6 +75,7 @@
 				<div class="col-md-4 col-xs-2 text-right button-properties">
 					<% if my_incident?(incident.id) && (incident.user_id == current_partner.id) && (incident.status == "negative") %>
 						<div class="container-fluid">
+
 								<form action="/relationships/forgive" method="post">
 									<input type="hidden" name="id" value="<%= incident.id %>">
 									<input class="btn btn-default" type="submit" value="forgive" />
@@ -98,9 +99,7 @@
 						<br>
 						<small class="text-muted"><%= incident.created_at.strftime("%A %d %B %Y %l:%M:%S %P") %></small>
 					</div>
-
 				</div>
 				<div class="col-md-4"></div>
 			</div>
-	<% end %>
 </div>
