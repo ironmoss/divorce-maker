@@ -7,25 +7,24 @@
 
 <div= "form">
   <form method="POST" action="kiss">
-    <div class="dropdown bg-warning rwell-lg dropdown-layout col-md-offset-3 col-md-6"><%=  current_partner.nickname %>
 
-      <label for="category"></label>
+  <div class="dropdown bg-warning rwell-lg dropdown-layout col-md-offset-3 col-md-6"><%=  current_partner.nickname %>
 
-      <select class="select btn-lg btn-info" data-style="btn-info" name= "category">
-        <% Incident::POSITIVE.keys.each do |key| %>
-          <option value="<%= key %>"><%= key %></option>
-        <% end %>
-      </select>
+    <select class="select btn-lg btn-info" data-style="btn-info" name= "category">
+      <% Incident::POSITIVE.keys.each do |key| %>
+        <option value="<%= key %>"><%= key %></option>
+      <% end %>
+    </select>
 
-      <div>
-        <label for="description"></label>
-        <input class="form-control well" name="description" type="textarea" placeholder= "describe incident here">
-      </div>
-
-      <div>
-        <button type="submit" class="btn btn-info col-md-2 col-md-offset-5">Submit</button>
-      </div>
+    <div>
+      <input class="form-control well" name="description" type="textarea" placeholder= "describe incident here">
     </div>
+
+    <div>
+      <button type="submit" class="btn btn-info col-md-2 col-md-offset-5">Submit</button>
+    </div>
+
+  </div>
 
   </form>
 </div>

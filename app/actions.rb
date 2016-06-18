@@ -16,7 +16,9 @@ helpers do
 
 	def current_user
 		#gets the current user from the session
-    @current_user ||= User.find_by nickname: session["nickname"] if session["nickname"] 
+
+    @current_user ||= User.find_by nickname: session["nickname"] if session["nickname"]
+
 	end
 
 	def current_partner
@@ -24,7 +26,7 @@ helpers do
 	end
 
 	def current_relationship
-		@current_relationship ||= Relationship.find(session["relationship"]) if session["relationship"] 
+		@current_relationship ||= Relationship.find(session["relationship"]) if session["relationship"]
 	end
 
 	def my_incident?(current_incident_id)
@@ -60,7 +62,8 @@ get '/login/:id/:nickname' do
   redirect "/relationships/#{params[:id]}/#{params[:nickname]}"
 end
 
-get '/relationships/forget' do 
+
+get '/relationships/forget' do
 	erb :'relationships/forget'
 end
 
@@ -68,7 +71,7 @@ get '/relationships/:id/:nickname' do
 	@relationship = Relationship.find params[:id]
 	@incidents = Incident.where(relationship_id: params[:id]).order("created_at desc")
 	@user = User.find_by nickname: params[:nickname]
-  
+
   erb :'relationships/show'
 end
 
@@ -115,6 +118,7 @@ post '/yell' do
 	  description: params[:description],
 		status: "negative"
 	  )
+
 	if @incident.save
   	redirect "/relationships/#{params[:id]}"
 	else
