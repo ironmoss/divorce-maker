@@ -38,6 +38,7 @@ end
 
 get '/relationships/forget' do
 	erb :'forget-page/forget-page'
+end
 
 get '/relationships/forget' do
 	erb :'relationships/forget'
