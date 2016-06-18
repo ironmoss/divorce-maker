@@ -1,3 +1,12 @@
+body {
+  padding-top: 70px;
+}
+
+button {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
 .incident {
   max-height: 500px;
   overflow-y: scroll;
