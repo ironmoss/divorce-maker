@@ -16,16 +16,21 @@
 	<div class="col-md-4">
 		<div class="bg-danger rounding">
 			<h1>
-			<% if current_user.total_points > current_partner.total_points %>
+			<% if current_relationship.winner == current_user %>
 				<%= current_user.nickname %><br>
 				is winning the relationship
-			<% elsif current_user.total_points < current_partner.total_points %>
+			<% else %>
 				<%= current_partner.nickname %><br>
 				is winning the relationship
 			<% end %>
 			</h1>
 			
-			<h3>Gain the  moral high ground</h3>
+			<% if current_relationship.winner == current_user %>
+				<h3>Maintain your moral high ground</h3>
+			<% else %>
+				<h3>Gain the  moral high ground</h3>
+			<% end %>
+			
 			<button type="button" class="btn btn-default btn-lg">
         <a href="/relationships/new_kiss">
           <span class="fa-stack">

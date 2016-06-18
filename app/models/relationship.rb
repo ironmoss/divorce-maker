@@ -14,4 +14,14 @@ class Relationship < ActiveRecord::Base
 		end
 	end	
 
+  def winner
+    # gets the total points of each user
+    #compares them & spits out the winner
+    if user1.total_points > user2.total_points
+      user1
+    else
+      user2
+    end
+  end
+
 end
