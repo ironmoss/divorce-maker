@@ -36,7 +36,7 @@ get '/relationships' do
 end
 
 get '/relationships/forget' do 
-	erb :'forget-page/forget-page'
+	erb :'relationships/forget'
 end
 
 get '/relationships/:id' do
