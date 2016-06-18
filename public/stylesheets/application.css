@@ -5,26 +5,27 @@
 
  .rounding {
 
-  border-radius:7px; 
+  border-radius:7px;
   padding:10px;
  }
 
  .button-properties {
  	padding: 25px;
  }
- 
+
  .text-properties {
  	height: 100px;
 
  }
 
  .button-and-text-alignment {
- 	
+
  }
 
  form {
     display: inline;
 }
+
 
 .margin-top{
 	height: 100px;
@@ -74,4 +75,11 @@
 .margin-bottom {
 	text-align: center;
 
+
+.send_header {
+    font-size: 30px;
+    border-radius:7px;
+    padding:10px;
+    border: 2px #e4e4e4 solid;
+    text-align: center;
 }
