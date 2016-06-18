@@ -35,6 +35,10 @@ get '/relationships' do
 	erb :'relationships/index'
 end
 
+get '/relationships/forget' do 
+	erb :'forget-page/forget-page'
+end
+
 get '/relationships/:id' do
 	@relationship = Relationship.find params[:id]
 	@incidents = Incident.where(relationship_id: params[:id]).order("created_at desc")
