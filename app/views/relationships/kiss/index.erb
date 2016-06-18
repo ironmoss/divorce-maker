@@ -5,8 +5,10 @@
 </div>
 
 <div= "form">
-  <form method="POST" action="new_kiss">
-  <div class="dropdown bg-warning rwell-lg dropdown_layout col-md-offset-3 col-md-6"><%=  current_partner.nickname %>
+
+  <form method="POST" action="kiss">
+  <div class="dropdown bg-warning rwell-lg send_header col-md-offset-3 col-md-6"><%=  current_partner.nickname %>
+
     <label for="category"></label>
     <select class="select btn-lg btn-info" data-style="btn-info" name= "category">
       <% Incident::POSITIVE.keys.each do |key| %>
