@@ -16,12 +16,7 @@ helpers do
 
 	def current_user
 		#gets the current user from the session
-<<<<<<< HEAD
     @current_user ||= User.find_by nickname: session["nickname"] if session["nickname"] 
-=======
-		@current_user ||= User.find(2)
-		#nickname: session["username"] if session["nickname"]
->>>>>>> aaaeb866223f65c86384b2d6ac168d4205bb26fc
 	end
 
 	def current_partner
@@ -50,17 +45,6 @@ get '/relationships' do
 	erb :'relationships/index'
 end
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-get '/relationships/forget' do
-	erb :'forget-page/forget-page'
-end
-
->>>>>>> aaaeb866223f65c86384b2d6ac168d4205bb26fc
-get '/relationships/forget' do
-=======
 get '/logout' do
   session["nickname"] = nil
   session["relationship"] = nil
@@ -77,7 +61,6 @@ get '/login/:id/:nickname' do
 end
 
 get '/relationships/forget' do 
->>>>>>> rerouting
 	erb :'relationships/forget'
 end
 
@@ -117,11 +100,11 @@ post '/kiss' do
 	  description: params[:description],
 		status: "positive"
 	  )
-		if @incident.save
-	  	redirect 'relationships/1'
-		else
-			erb :index
-		end
+	if @incident.save
+  	redirect "/relationships/#{params[:id]}"
+	else
+		erb :index
+	end
 end
 
 post '/yell' do
@@ -132,19 +115,10 @@ post '/yell' do
 	  description: params[:description],
 		status: "negative"
 	  )
-<<<<<<< HEAD
-
 	if @incident.save
   	redirect "/relationships/#{params[:id]}"
 	else
 		erb :index
 	end
 
-=======
-		if @incident.save
-	  	redirect 'relationships/1'
-		else
-			erb :index
-		end
->>>>>>> aaaeb866223f65c86384b2d6ac168d4205bb26fc
 end
