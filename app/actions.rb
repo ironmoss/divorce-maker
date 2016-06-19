@@ -81,7 +81,7 @@ post '/relationships/forgive' do
 	if @incident.update(
 		status: 'forgiven',
 		calculated_points: 0)
-    redirect "/relationships/#{params[:id]}/#{params[:nickname]}"
+    redirect "/relationships/#{current_relationship.id}/#{current_user.nickname}"
   else
   	erb :'relationships/show'
   end
