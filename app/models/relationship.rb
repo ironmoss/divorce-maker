@@ -14,9 +14,9 @@ class Relationship < ActiveRecord::Base
 		end
 	end	
 
+# Checks both users points and returns the user with the highest point value.
+# Returns nil in case of a tie. 
   def winner
-    # gets the total points of each user
-    #compares them & spits out the winner
     if user1.total_points > user2.total_points
       user1
     elsif user1.total_points < user2.total_points

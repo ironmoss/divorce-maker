@@ -7,12 +7,9 @@ class User < ActiveRecord::Base
   validates :email, presence: true
   validates :password, presence: true
 
+# Returns the total points of all incidents belonging to a user.
   def total_points
-		#calculates total points of any user that's passed		
-		#sum total points of total_user all incidents 
 		Incident.where(user_id: id).sum(:calculated_points)
 	end
-
-
 
 end

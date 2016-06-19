@@ -10,6 +10,7 @@ class Incident < ActiveRecord::Base
 
   before_save :calculate_points
 
+# Constant point values for postive incidents (kisses)
   DID                 = 10
   REMEMBERED          = 10
   FORGAVE_ME_FOR      = 10
@@ -21,6 +22,7 @@ class Incident < ActiveRecord::Base
   WAS_HONEST          = 20
   BOUGHT              = 10
 
+# Constant point values for negative incidents (yells)
   REFUSED_TO          = 10
   FORGOT              = 10
   BLAMED_ME_FOR       = 10
@@ -32,9 +34,11 @@ class Incident < ActiveRecord::Base
   LIED                = 30
   TOOK                = 15
 
+# Multiplying factors for recurrent incidents.
   POSITIVE_MULTIPLIER = 0.75
   NEGATIVE_MULTIPLIER = 1.25
 
+# Relates positive categories to their point values.
   POSITIVE = {
     'did'               => DID,
     'remembered'        => REMEMBERED,
@@ -48,6 +52,7 @@ class Incident < ActiveRecord::Base
     'bought'            => BOUGHT
   }
 
+# Relates negative categories to their point values.
   NEGATIVE = {
     'refused to'          => REFUSED_TO,
     'forgot'              => FORGOT,
@@ -61,6 +66,7 @@ class Incident < ActiveRecord::Base
     'took'                => TOOK
   }
 
+# Calculates the point value of each incident on instantiation via callback.
   def calculate_points
     if status == "negative"
       penalty = NEGATIVE[category]
