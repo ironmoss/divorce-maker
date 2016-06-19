@@ -1,4 +1,8 @@
- .incident {
+.relationship-wells {
+  min-height: 450px;
+}
+
+.incident {
   max-height: 500px;
 }
 
@@ -156,4 +160,13 @@ form {
 .img-yell {
   height: 150px;
   width: 400px;
+}
+
+::-webkit-input-placeholder {
+   color: #808080;
+   text-align: center;
+}
+
+.padding-style {
+  padding: 10px;
 }
