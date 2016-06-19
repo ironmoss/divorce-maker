@@ -19,7 +19,7 @@ Incident.create!(user_id: @relationship1.user2_id, relationship_id: @relationshi
 Incident.create!(user_id: @relationship1.user2_id, relationship_id: @relationship1.id, category: "forgot", description: "to put the seat down...", status: "negative")#second incident of forgot to
 Incident.create!(user_id: @relationship1.user1_id, relationship_id: @relationship1.id, category: "lost", description: "the necklace I just bought her. Somehow dropped it in the toilet...", status: "negative")
 Incident.create!(user_id: @relationship1.user1_id, relationship_id: @relationship1.id, category: "said hurtful things", description: "after reading my previous incident report", status: "negative") #second incident of "said hurtful.."
-Incident.create!(user_id: @relationship1.user2_id, relationship_id: @relationship1.id, category: "blamed me for", description: "losing the necklance", status: "negative")
+Incident.create!(user_id: @relationship1.user2_id, relationship_id: @relationship1.id, category: "blamed me for", description: "losing the necklace", status: "negative")
 Incident.create!(user_id: @relationship1.user1_id, relationship_id: @relationship1.id, category: "helped", description: "me take apart the toilet", status: "positive")
 Incident.create!(user_id: @relationship1.user2_id, relationship_id: @relationship1.id, category: "lied", description: "about knowing how to take apart a toilet", status: "negative")
                                                                 #pt tally: @fuzzybear (him) : -77 @shnookum (her) : -60
