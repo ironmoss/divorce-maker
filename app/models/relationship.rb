@@ -19,7 +19,7 @@ class Relationship < ActiveRecord::Base
     #compares them & spits out the winner
     if user1.total_points > user2.total_points
       user1
-    else
+    elsif user1.total_points < user2.total_points
       user2
     end
   end
