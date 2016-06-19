@@ -1,7 +1,21 @@
-Sinatra
-=============
+The Divorce Maker (tm)
+=====================
 
-Brought to you by Lighthouse Labs
+## About
+This was a midterm project for the May 23 2016 cohort of Lighthouse Labs
+
+Trello board: https://trello.com/b/xPpowreM/lhl-midterm-project
+
+Original contributors:
+* https://github.com/ironmoss
+* https://github.com/jenreiher
+* https://github.com/Olgaliber
+* https://github.com/ZeonZone
+
+## Acknowledgements
+
+* Based on the Sinatra Skeleton by Lighthouse Labs
+* Artwork borrowed by Simon Cat 
 
 ## Getting Started
 
