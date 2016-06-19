@@ -1,15 +1,10 @@
-body {
-  padding-top: 70px;
+ .incident {
+  max-height: 500px;
+  overflow-y: scroll;
 }
 
 button {
-  margin-left: 20px;
-  margin-right: 20px;
-}
-
-.incident {
-  max-height: 500px;
-  overflow-y: scroll;
+  margin: 2px 20px;
 }
 
 .rounding {
@@ -18,15 +13,18 @@ button {
 }
 
 .button-properties {
- 	padding: 25px;
+     padding: 25px;
 }
 
 .text-properties {
- 	height: 100px;
+     height: 100px;
 }
 
 .button-and-text-alignment {
+}
 
+body {
+  padding-top: 80px;
 }
 
 form {
@@ -34,7 +32,7 @@ form {
 }
 
 .hero {
-  background-color: #EF6363;
+  background-color: #EF6363; 
   height: 450px;
   margin-top: -20px;
 }
@@ -52,7 +50,7 @@ form {
 }
 
 .list-box {
-  background-color: #45566E;
+  background-color: #45566E; 
   height: 200px;
   width: 100px;
 }
@@ -66,41 +64,31 @@ form {
 
 #pro-button-lg {
   font-size: 22px;
-  border-radius: 2px;
-	border-radius: 10px;
+  border-radius: 2px; 
+    border-radius: 10px; 
   padding-bottom: 10px;
   text-align: center;
-
 }
 
 #pro-button {
   padding: 15px 20px;
   font-size: 32px;
   border-radius: 8px;
-
 }
 
 .margin-bottom {
-	text-align: center;
+    text-align: center;
   background-color: white;
   margin-top: -20px;
-
-
 }
 
-.dropdown-layout {
+.send_header {
     font-size: 30px;
     border-radius:7px;
     padding:10px;
     border: 2px #e4e4e4 solid;
     text-align: center;
 }
-
-::-webkit-input-placeholder {
-   color: #808080;
-   text-align: center;
-}
-
 
 .features-table {
   background-color: #45566E;
@@ -110,7 +98,6 @@ form {
   margin-bottom: -50px;
   margin-top: -245px;
   color: #45566E;
-
 }
 
 .features-title {
@@ -131,18 +118,44 @@ form {
   margin-bottom: 30px;
 }
 
-
-
 .title-color {
   background-color: white;
 }
 
-.img-kiss {
-  height: 200px;
-  width: 350px;
+.winner-column {
+  text-align: center;
+}
+
+.bookmark-text {
+  color: white;
+  font-size: 20px;
+  text-align: top;
+  margin-top: -6px;
+}
+
+.bookmark-styling {
+  width: 85px;
+  height: 90px;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  width: 100px;
+}
+
+.bg-info-no-chart {
+   display: inline-block;
+   width: 450px;
+}
+
+.top-nickname {
+  height: 90px;
+  text-align: center;
+  margin: 0px auto;
+  width: 250px;
 }
 
 .img-yell {
   height: 200px;
   width: 400px;
 }
+

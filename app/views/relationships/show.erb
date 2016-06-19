@@ -1,12 +1,19 @@
-
-
 <div class="row">
 	<div class="col-md-4">
 		<div class="bg-info rounding">
-			<h1><%= current_user.nickname %></h1>
-			<span class="fa-stack fa-3x">
-	  		<i class="fa fa-bookmark fa-stack-2x text-success"></i><strong class="fa-stack-1x calendar-text fa-inverse"><%= current_user.total_points %></strong>
-			</span>
+			<div class="bg-info-no-chart row">
+				<div class="bookmark-styling col-md-offset-1 col-md-4">
+					<span class="fa-stack fa-3x">
+			  		<i class="fa fa-bookmark fa-stack-2x text-success"></i>
+			  		<div class="another-text">
+			  		<strong class="fa-stack-1x bookmark-text"><%= current_user.total_points %></strong	>
+			  		</div>
+					</span>
+				</div>
+					<div class="top-nickname col-md-2">
+					<h1><%= current_user.nickname %></h1>
+					</div>
+			</div>
 			<br>
 				<%= bar_chart Incident.where(user_id: current_user.id).group(:category).order(:calculated_points).sum(:calculated_points) %>
 		</div>
@@ -15,53 +22,64 @@
 
 	<div class="col-md-4">
 		<div class="bg-danger rounding">
-			<h1>
-			<% if current_relationship.winner == current_user %>
-				<%= current_user.nickname %><br>
-				is winning the relationship
-			<% else %>
-				<%= current_partner.nickname %><br>
-				is winning the relationship
-			<% end %>
-			</h1>
+			<div class="winner-column">
+				<% if current_relationship.winner == current_user %>
+					<h1><%= current_user.nickname %></h1><br>
+					<h2>is winning<br> 
+					the relationship</h2>
+				<% else %>
+					<%= current_partner.nickname %><br>
+					<h2>is winning<br>
+					the relationship</h2>
+				<% end %>
 
-			<% if current_relationship.winner == current_user %>
-				<h3>Maintain your moral high ground</h3>
-			<% else %>
-				<h3>Gain the  moral high ground</h3>
-			<% end %>
+				<% if current_relationship.winner == current_user %>
+					<h3>Maintain your moral high ground</h3>
+				<% else %>
+					<h3>Gain the moral high ground</h3>
+				<% end %>
+				
+	      <a href='<%= "/relationships/#{current_relationship.id}/#{current_user.nickname}/kiss" %>'>
+				<button type="button" class="btn btn-default btn-lg">
+	          <span class="fa-stack">
+	            <i class="fa fa-heart fa-stack-2x text-danger" aria-hidden="true"></i>
+	            <i class="fa fa-plus fa-stack-1x text-primary" aria-hidden="true"></i>
+	          </span>
+	          Add a new kiss
+	      </button>
+		    </a>
 
-
-
-
-      <a href='<%= "/relationships/#{current_relationship.id}/#{current_user.nickname}/kiss" %>'>
-			<button type="button" class="btn btn-default btn-lg">
-          <span class="fa-stack">
-            <i class="fa fa-heart fa-stack-2x text-danger" aria-hidden="true"></i>
-            <i class="fa fa-plus fa-stack-1x text-primary" aria-hidden="true"></i>
-          </span>
-          Add a new kiss
-      </button>
-	    </a>
-
-      <a href="<%= "/relationships/#{current_relationship.id}/#{current_user.nickname}/yell" %>">
-			<button type="button" class="btn btn-default btn-lg">
-          <span class="fa-stack">
-            <i class="fa fa-heart-o fa-stack-2x text-danger" aria-hidden="true"></i>
-            <i class="fa fa-minus fa-stack-1x text-primary" aria-hidden="true"></i>
-          </span>
-					Add a new yell
-      </button>
-      </a>
+	      <a href="<%= "/relationships/#{current_relationship.id}/#{current_user.nickname}/yell" %>">
+				<button type="button" class="btn btn-default btn-lg">
+	          <span class="fa-stack">
+	            <i class="fa fa-heart-o fa-stack-2x text-danger" aria-hidden="true"></i>
+	            <i class="fa fa-minus fa-stack-1x text-primary" aria-hidden="true"></i>
+	          </span>
+						Add a new yell
+	      </button>
+	      </a>
+			</div>
 		</div>
-	</div>
+</div>
 
-	<div class="col-md-4">
+<div class="col-md-4">
 		<div class="bg-warning rounding">
-			<h1><%= current_partner.nickname %></h1>
-			<span class="fa-stack fa-3x">
-	  		<i class="fa fa-bookmark fa-stack-2x text-success"></i><strong class="fa-stack-1x calendar-text fa-inverse"><%= current_partner.total_points %></strong>
-			</span>
+
+		<div class="bg-info-no-chart row">
+				<div class="bookmark-styling col-md-offset-1 col-md-4">
+					<span class="fa-stack fa-3x">
+			  		<i class="fa fa-bookmark fa-stack-2x text-success"></i>
+			  		<div class="another-text">
+			  		<strong class="fa-stack-1x bookmark-text"><%= current_partner.total_points %></strong	>
+			  		</div>
+					</span>
+				</div>
+					<div class="top-nickname col-md-2">
+					<h1><%= current_partner.nickname %></h1>
+					</div>
+			</div>		
+
+
 			<br>
 				<%= bar_chart Incident.where(user_id: current_partner.id).group(:category).order(:calculated_points).sum(:calculated_points) %>
 		</div>
