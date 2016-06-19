@@ -1,26 +1,24 @@
-<div class="row">
-	<div class="col-md-4">
+<div class="row"> <!-- relationship header start -->
+	<div class="col-md-4"> <!-- current_user status start -->
 		<div class="well-lg bg-info relationship-wells">
 			<div class="bg-info-no-chart row">
 				<div class="bookmark-styling col-md-offset-1 col-md-4">
 					<span class="fa-stack fa-3x">
-			  		<i class="fa fa-bookmark fa-stack-2x text-success"></i>
-			  		<div class="another-text">
-			  		<strong class="fa-stack-1x bookmark-text"><%= current_user.total_points %></strong	>
-			  		</div>
+						<i class="fa fa-bookmark fa-stack-2x text-success"></i>
+						<div class="another-text">
+							<strong class="fa-stack-1x bookmark-text"><%= current_user.total_points %></strong	>
+						</div>
 					</span>
 				</div>
-					<div class="top-nickname col-md-2">
+				<div class="top-nickname col-md-2">
 					<h1><%= current_user.nickname %></h1>
-					</div>
+				</div>
 			</div>
 			<br>
-				<%= bar_chart Incident.where(user_id: current_user.id).group(:category).order(:calculated_points).sum(:calculated_points) %>
+			<%= bar_chart Incident.where(user_id: current_user.id).group(:category).order(:calculated_points).sum(:calculated_points) %>
 		</div>
-
-	</div>
-
-	<div class="col-md-4">
+	</div> <!-- current_user status end -->
+	<div class="col-md-4"> <!-- winner status start -->
 		<div class="well-lg bg-danger relationship-wells">
 			<div class="winner-column">
 				<% if current_relationship.winner == current_user %>
@@ -35,104 +33,94 @@
 					<h1>You & <%= current_partner.nickname %></h1><br>
 					<h2>are now tied</h2>	
 				<% end %>
-
 				<% if current_relationship.winner == current_user %>
 					<h3>Maintain your moral high ground</h3>
 				<% elsif current_relationship.winner == current_partner %>
 					<h3>Gain the moral high ground</h3>
-				<% else %>
+					<% else %>
 					<h3> Take the moral high ground</h3>
 				<% end %>
-				
-	      <a href='<%= "/relationships/#{current_relationship.id}/#{current_user.nickname}/kiss" %>'>
-				<button type="button" class="btn btn-default btn-lg">
-	          <span class="fa-stack">
-	            <i class="fa fa-heart fa-stack-2x text-danger" aria-hidden="true"></i>
-	            <i class="fa fa-plus fa-stack-1x text-primary" aria-hidden="true"></i>
-	          </span>
-	          Add a new kiss
-	      </button>
-		    </a>
+				<a href='<%= "/relationships/#{current_relationship.id}/#{current_user.nickname}/kiss" %>'>
+					<button type="button" class="btn btn-default btn-lg">
+						<span class="fa-stack">
+							<i class="fa fa-heart fa-stack-2x text-danger" aria-hidden="true"></i>
+							<i class="fa fa-plus fa-stack-1x text-primary" aria-hidden="true"></i>
+						</span>
+						Add a new kiss
+					</button>
+				</a>
 
-	      <a href="<%= "/relationships/#{current_relationship.id}/#{current_user.nickname}/yell" %>">
-				<button type="button" class="btn btn-default btn-lg">
-	          <span class="fa-stack">
-	            <i class="fa fa-heart-o fa-stack-2x text-danger" aria-hidden="true"></i>
-	            <i class="fa fa-minus fa-stack-1x text-primary" aria-hidden="true"></i>
-	          </span>
+				<a href="<%= "/relationships/#{current_relationship.id}/#{current_user.nickname}/yell" %>">
+					<button type="button" class="btn btn-default btn-lg">
+						<span class="fa-stack">
+							<i class="fa fa-heart-o fa-stack-2x text-danger" aria-hidden="true"></i>
+							<i class="fa fa-minus fa-stack-1x text-primary" aria-hidden="true"></i>
+						</span>
 						Add a new yell
-	      </button>
-	      </a>
+					</button>
+				</a>
 			</div>
 		</div>
-</div>
+	</div><!-- winner status end -->
 
-<div class="col-md-4">
+	<div class="col-md-4"> <!-- current_partner status start -->
 		<div class="well-lg bg-warning relationship-wells">
-
-		<div class="bg-info-no-chart row">
+			<div class="bg-info-no-chart row">
 				<div class="bookmark-styling col-md-offset-1 col-md-4">
 					<span class="fa-stack fa-3x">
-			  		<i class="fa fa-bookmark fa-stack-2x text-success"></i>
-			  		<div class="another-text">
-			  		<strong class="fa-stack-1x bookmark-text"><%= current_partner.total_points %></strong	>
-			  		</div>
+						<i class="fa fa-bookmark fa-stack-2x text-success"></i>
+						<div class="another-text">
+							<strong class="fa-stack-1x bookmark-text"><%= current_partner.total_points %></strong	>
+						</div>
 					</span>
 				</div>
-					<div class="top-nickname col-md-2">
-					<h1><%= current_partner.nickname %></h1>
-					</div>
+				<div class="top-nickname col-md-2">
+				<h1><%= current_partner.nickname %></h1>
+				</div>
 			</div>		
-
-
 			<br>
-				<%= bar_chart Incident.where(user_id: current_partner.id).group(:category).order(:calculated_points).sum(:calculated_points) %>
+			<%= bar_chart Incident.where(user_id: current_partner.id).group(:category).order(:calculated_points).sum(:calculated_points) %>
 		</div>
-	</div>
-</div>
+	</div> <!-- current_partner status end -->
+</div>  <!-- relationship header end -->
 
 <div class="row">
-	<div class="col-md-12">
-		<hr>
-	</div>
+<div class="col-md-12">
+<hr>
+</div>
 </div>
 
-<div class="row">
+<div class="row"><!-- incident report start -->
 	<div class="incident">
 		<% @incidents.each do |incident| %>
 			<div class="row" style="margin-bottom:7px;">
-					<div class="col-md-4 col-xs-2 text-right button-properties">
-						<% if my_incident?(incident.id) && (incident.user_id == current_partner.id) && (incident.status == "negative") %>
-							<div class="container-fluid">
-									<form action="/relationships/forgive" method="post">
-										<input type="hidden" name="id" value="<%= incident.id %>">
-										<input class="btn btn-default" type="submit" value="forgive" />
-									</form>
-								<a href="/relationships/forget"><input class="btn btn-default" type="submit" value="forget" /></a>
-							</div>
-						<% end %>
-					</div>
-
-					<div class="col-md-4">
-
-						<div class="bg-<% if (incident.user_id == current_user.id)%>info<% else %>warning<% end %> rounding text-properties">
-							<span class="fa-stack fa-lg">
-								<i class="fa fa-lg fa-<% if incident.status == "positive" %>heart fa-stack-1x text-danger<% elsif incident.status == "negative" %>heart-o fa-stack-1x text-danger"></i><i class="fa fa-bolt fa-stack-1x text-danger<% elsif incident.status == "forgiven" %>heart-o text-muted<% end %>" aria-hidden="true"></i>
-
-							</span>
-
-							<%= incident.user.nickname %> <%= incident.category %> <%= incident.description %>
-							<br>
-							<small class="text-muted"><%= incident.created_at.strftime("%A %d %B %Y %l:%M:%S %P") %></small>
-
+				<div class="col-md-4 col-xs-2 text-right button-properties">
+					<% if my_incident?(incident.id) && (incident.user_id == current_partner.id) && (incident.status == "negative") %>
+						<div class="container-fluid">
+							<form action="/relationships/forgive" method="post">
+								<input type="hidden" name="id" value="<%= incident.id %>">
+								<input class="btn btn-default" type="submit" value="forgive" />
+							</form>
+							<a href="/relationships/forget"><input class="btn btn-default" type="submit" value="forget" /></a>
 						</div>
+					<% end %>
+				</div>
+				<div class="col-md-4">
+					<div class="bg-<% if (incident.user_id == current_user.id)%>info<% else %>warning<% end %> rounding text-properties">
+						<span class="fa-stack fa-lg">
+							<i class="fa fa-lg fa-<% if incident.status == "positive" %>heart fa-stack-1x text-danger<% elsif incident.status == "negative" %>heart-o fa-stack-1x text-danger"></i><i class="fa fa-bolt fa-stack-1x text-danger<% elsif incident.status == "forgiven" %>heart-o text-muted<% end %>" aria-hidden="true"></i>
+						</span>
+						<%= incident.user.nickname %> <%= incident.category %> <%= incident.description %>
+						<br>
+						<small class="text-muted"><%= incident.created_at.strftime("%A %d %B %Y %l:%M:%S %P") %></small>
 					</div>
+				</div>
 				<div class="col-md-4 col-xs-2 text-left button-properties">
 					<% if my_incident?(incident.id) && (incident.user_id == current_partner.id) %>
-						<a href="https://twitter.com/share" class="twitter-share-button" data-url="divorce-maker.com" data-text=" @<%= incident.user.nickname %> <%= incident.category %> <%= incident.description %>" data-via="DivorceMaker" data-size="large">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-						<% end %>
+					<a href="https://twitter.com/share" class="twitter-share-button" data-url="divorce-maker.com" data-text=" @<%= incident.user.nickname %> <%= incident.category %> <%= incident.description %>" data-via="DivorceMaker" data-size="large">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+					<% end %>
 				</div>
 			</div>
 		<% end %>
-
-</div>
+	</div>
+</div> <!-- incident report end -->
