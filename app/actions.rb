@@ -81,7 +81,7 @@ post '/relationships/forgive' do
 	if @incident.update(
 		status: 'forgiven',
 		calculated_points: 0)
-    redirect "/relationships"
+    redirect "/relationships/#{params[:id]}/#{params[:nickname]}"
   else
   	erb :'relationships/show'
   end
@@ -95,7 +95,7 @@ get '/relationships/:id/:nickname/yell' do
   erb :'/relationships/yell/index'
 end
 
-post '/kiss' do
+post '/relationships/:id/:nickname/kiss' do
 	@incident = current_relationship.incidents.build(
 		user_id: current_partner.id,
 		relationship_id: current_relationship.id,
@@ -104,13 +104,13 @@ post '/kiss' do
 		status: "positive"
 	  )
 	if @incident.save
-  	redirect "/relationships/#{params[:id]}"
+  	redirect "/relationships/#{params[:id]}/#{params[:nickname]}"
 	else
 		erb :index
 	end
 end
 
-post '/yell' do
+post '/relationships/:id/:nickname/yell' do
 	@incident = current_relationship.incidents.build(
 		user_id: current_partner.id,
 		relationship_id: current_relationship.id,
@@ -120,7 +120,7 @@ post '/yell' do
 	  )
 
 	if @incident.save
-  	redirect "/relationships/#{params[:id]}"
+  	redirect "/relationships/#{params[:id]}/#{params[:nickname]}"
 	else
 		erb :index
 	end
