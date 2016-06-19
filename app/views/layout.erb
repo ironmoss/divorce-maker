@@ -3,9 +3,6 @@
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-  <!--
-    application.css is where you put your styles
-  -->
   <link rel="stylesheet" href="/stylesheets/application.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -17,58 +14,67 @@
 
   <title></title>
 </head>
+
 <body>
+  <% if logged_in? %> <!--Renders only if user logged in -->
 
-
-
-  <% if logged_in? %>
+    <!-- Sets up top navigation bar -->
     <nav class="navbar navbar-default navbar-fixed-top">
+    
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <!-- Adds site logo -->
+          <img class= "navbar-left" alt ="Divorcemaker" src="/images/divorcemaker.png">
+        </div>
 
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <img class= "navbar-left" alt ="Divorcemaker" src="/images/divorcemaker.png">
-      </div>
+        <!-- Adds logout button to navigation bar -->
+        <!-- Returns to sign-in page -->
+        <a href="/logout">
+          <button type="button" class="btn btn-default btn-lg navbar-right">
+            <span class="fa-stack">
+              <i class="fa fa-sign-out fa-2x text-primary" aria-hidden="true"></i>
+            </span>
+          </button>
+        </a>
 
-      <a href="/logout">
-      <button type="button" class="btn btn-default btn-lg navbar-right">
-          <span class="fa-stack">
-            <i class="fa fa-sign-out fa-2x text-primary" aria-hidden="true"></i>
-          </span>
-      </button>
-      </a>
+        <!-- Adds home button to navigation bar -->
+        <!-- Returns to current user's relationship page -->
+        <a href="<%= "/relationships/#{current_relationship.id}/#{current_user.nickname}" %>">
+          <button type="button" class="btn btn-default btn-lg navbar-right">
+              <span class="fa-stack">
+                <i class="fa fa-home fa-2x text-primary" aria-hidden="true"></i>
+              </span>
+          </button>
+        </a>
 
-      <a href="<%= "/relationships/#{current_relationship.id}/#{current_user.nickname}" %>">
-      <button type="button" class="btn btn-default btn-lg navbar-right">
-          <span class="fa-stack">
-            <i class="fa fa-home fa-2x text-primary" aria-hidden="true"></i>
-          </span>
-      </button>
-      </a>
-
+        <!-- Adds yell button to navigation bar -->
+        <!-- Lets current user add a new yell -->
         <a href="<%= "/relationships/#{current_relationship.id}/#{current_user.nickname}/yell" %>" >
-      <button type="button" class="btn btn-default btn-lg navbar-right">
-          <span class="fa-stack">
-            <i class="fa fa-heart-o fa-stack-2x text-danger" aria-hidden="true"></i>
-            <i class="fa fa-minus fa-stack-1x text-primary" aria-hidden="true"></i>
-          </span>
-      </button>
-      </a>
+          <button type="button" class="btn btn-default btn-lg navbar-right">
+            <span class="fa-stack">
+              <i class="fa fa-heart-o fa-stack-2x text-danger" aria-hidden="true"></i>
+              <i class="fa fa-minus fa-stack-1x text-primary" aria-hidden="true"></i>
+            </span>
+          </button>
+        </a>
 
-      <a href="<%= "/relationships/#{current_relationship.id}/#{current_user.nickname}/kiss" %>">
-      <button type="button" class="btn btn-default btn-lg navbar-right">
-          <span class="fa-stack">
-            <i class="fa fa-heart fa-stack-2x text-danger" aria-hidden="true"></i>
-            <i class="fa fa-plus fa-stack-1x text-primary" aria-hidden="true"></i>
-          </span>
-      </button>
-      </a>
+        <!-- Adds kiss button to navigation bar -->
+        <!-- Lets current user add a kiss yell -->
+        <a href="<%= "/relationships/#{current_relationship.id}/#{current_user.nickname}/kiss" %>">
+          <button type="button" class="btn btn-default btn-lg navbar-right">
+            <span class="fa-stack">
+              <i class="fa fa-heart fa-stack-2x text-danger" aria-hidden="true"></i>
+              <i class="fa fa-plus fa-stack-1x text-primary" aria-hidden="true"></i>
+            </span>
+          </button>
+        </a>
 
-    </div>
+      </div>
     </nav>
   <% end %>
 
 
-
+<!-- Renders views -->
   <div class="container-fluid">
     <%= yield %>
   </div>
