@@ -1,29 +1,9 @@
-.relationship-wells {
-  min-height: 450px;
-}
+/* CSS order follows views pages */
 
-.incident {
-  max-height: 500px;
-}
+/* css applies to all/many pages */
 
-button {
-  margin: 2px 20px;
-}
-
-.rounding {
-  border-radius:7px;
-  padding:10px;
-}
-
-.button-properties {
-     padding: 25px;
-}
-
-.text-properties {
-     height: 100px;
-}
-
-.button-and-text-alignment {
+.navbar button  {
+  margin: 2px;
 }
 
 body {
@@ -33,6 +13,45 @@ body {
 form {
   display: inline;
 }
+
+.relationship-wells {
+  min-height: 450px;
+}
+
+.incident {
+  max-height: 500px;
+}
+
+.padding-style {
+  padding: 10px;
+}
+
+.rounding {
+  border-radius:7px;
+  padding:10px;
+}
+
+/* Kiss and Yell */
+
+.img-yell {
+  height: 150px;
+  width: 400px;
+}
+
+.dropdown-layout {
+  font-size: 30px;
+  border-radius:7px;
+  padding:10px;
+  border: 2px #e4e4e4 solid;
+  text-align: center;
+}
+
+::-webkit-input-placeholder {
+  color: #808080;
+  text-align: center;
+}
+
+/* Forget */
 
 .hero {
   background-color: #EF6363;
@@ -46,51 +65,18 @@ form {
   color: white;
 }
 
+.title {
+  text-align: center;
+  background-color: #C9D6DE;
+  font-size: 24px;
+  padding-top: 6px;
+  margin-bottom: 15px;
+}
+
 .price {
   font-size: 40px;
   text-align: center;
   color: white;
-}
-
-.list-box {
-  background-color: #45566E;
-  height: 200px;
-  width: 100px;
-}
-
-
-.middle-bar {
-  height: 125px;
-  background-color: red;
-  text-align: center;
-}
-
-#pro-button-lg {
-  font-size: 22px;
-  border-radius: 2px;
-    border-radius: 10px;
-  padding-bottom: 10px;
-  text-align: center;
-}
-
-#pro-button {
-  padding: 15px 20px;
-  font-size: 32px;
-  border-radius: 8px;
-}
-
-.margin-bottom {
-    text-align: center;
-  background-color: white;
-  margin-top: -20px;
-}
-
-.dropdown-layout {
-    font-size: 30px;
-    border-radius:7px;
-    padding:10px;
-    border: 2px #e4e4e4 solid;
-    text-align: center;
 }
 
 .features-table {
@@ -108,12 +94,8 @@ form {
   background-color: #C9D6DE;
 }
 
-.title {
-  text-align: center;
-  background-color: #C9D6DE;
-  font-size: 24px;
-  padding-top: 6px;
-  margin-bottom: 15px;
+.title-color {
+  background-color: white;
 }
 
 .list-group {
@@ -121,8 +103,28 @@ form {
   margin-bottom: 30px;
 }
 
-.title-color {
-  background-color: white;
+.button-properties {
+  padding: 25px;
+}
+
+#pro-button {
+  padding: 15px 20px;
+  font-size: 32px;
+  border-radius: 8px;
+}
+
+#pro-button-lg {
+  font-size: 22px;
+  border-radius: 2px;
+  border-radius: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+/* Show */
+
+.text-properties {
+  height: 100px;
 }
 
 .winner-column {
@@ -146,8 +148,8 @@ form {
 }
 
 .bg-info-no-chart {
-   display: inline-block;
-   width: 450px;
+  display: inline-block;
+  width: 450px;
 }
 
 .top-nickname {
@@ -157,16 +159,8 @@ form {
   width: 250px;
 }
 
-.img-yell {
-  height: 150px;
-  width: 400px;
-}
-
-::-webkit-input-placeholder {
-   color: #808080;
-   text-align: center;
-}
-
-.padding-style {
-  padding: 10px;
+.margin-bottom {
+  text-align: center;
+  background-color: white;
+  margin-top: -20px;
 }
