@@ -157,3 +157,12 @@ form {
   height: 150px;
   width: 400px;
 }
+
+::-webkit-input-placeholder {
+   color: #808080;
+   text-align: center;
+}
+
+.padding-style {
+  padding: 10px;
+}
