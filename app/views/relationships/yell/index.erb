@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col-md-12">
+    <img class= "img-yell col-md-offset-4" alt="Mad Simon's cat" src="/images/simonscat_angry.png">
+    <!-- Simon's cat image copyright simonscat.com, used for demo purposes only, please don't sue us! -->
+  </div>
+</div>
+
+<div= "form">
+
+  <form method="POST" action="yell">
+  <div class="dropdown bg-warning rwell-lg dropdown-layout col-md-offset-3 col-md-6"><%=  current_partner.nickname %>
+
+    <select class="select btn-lg btn-danger" data-style="btn-info" name= "category">
+      <% Incident::NEGATIVE.keys.each do |key| %>
+        <option value="<%= key %>"><%= key %></option>
+      <% end %>
+    </select>
+
+      <div>
+        <input class="form-control well" name="description" type="textarea" placeholder= "describe incident here">
+      </div>
+
+      <div>
+        <button type="submit" class="btn btn-danger col-md-2 col-md-offset-5">Submit</button>
+      </div>
+
+    </div>
+  </form>
+</div>
+
+<br>
+<div class="incident">
+  <%@incidents = Incident.where(relationship_id: params[:id]).where(status: "negative").where(user_id:        current_user.id).order("created_at").limit(5)%>
+  <% @incidents.each do |incident| %>
+    <div class="row" style="margin-bottom:7px;">
+
+      <div class="col-md-4 col-xs-2 text-right button-properties "></div>
+
+        <div class="col-md-4 ">
+
+          <div class="bg-<% if (incident.user_id == current_user.id)%>info<% else %>warning<% end %> rounding text-properties">
+            <span class="fa-stack fa-lg">
+            <i class="fa fa-lg fa-<% if incident.status == "positive" %>heart fa-stack-1x text-danger<% elsif incident.status == "negative" %>heart-o fa-stack-1x text-danger"></i><i class="fa fa-bolt fa-stack-1x text-danger<% elsif incident.status == "forgiven" %>heart-o text-muted<% end %>" aria-hidden="true"></i>
+            </span>
+            <%= incident.user.nickname %> <%= incident.category %> <%= incident.description %>
+            <br>
+            <small class="text-muted"><%= incident.created_at.strftime("%A %d %B %Y %l:%M:%S %P") %></small>
+          </div>
+        </div>
+      <div class="col-md-4"></div>
+    </div>
+  <% end %>
+</div>

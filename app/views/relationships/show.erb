@@ -1,5 +1,3 @@
-
-
 <div class="row">
 	<div class="col-md-4">
 		<div class="bg-info rounding">
@@ -19,13 +17,12 @@
 			<br>
 				<%= bar_chart Incident.where(user_id: current_user.id).group(:category).order(:calculated_points).sum(:calculated_points) %>
 		</div>
-		
+
 	</div>
 
 	<div class="col-md-4">
 		<div class="bg-danger rounding">
-			<div class="text">
-				
+			<div class="winner-column">
 				<% if current_relationship.winner == current_user %>
 					<h1><%= current_user.nickname %></h1><br>
 					<h2>is winning<br> 
@@ -36,45 +33,36 @@
 					the relationship</h2>
 				<% end %>
 
-			
-				
 				<% if current_relationship.winner == current_user %>
 					<h3>Maintain your moral high ground</h3>
 				<% else %>
 					<h3>Gain the moral high ground</h3>
 				<% end %>
-
 				
+	      <a href='<%= "/relationships/#{current_relationship.id}/#{current_user.nickname}/kiss" %>'>
 				<button type="button" class="btn btn-default btn-lg">
-	        <a href="<%= "/relationships/" + current_relationship.id.to_s + "/new_kiss"%>">
 	          <span class="fa-stack">
 	            <i class="fa fa-heart fa-stack-2x text-danger" aria-hidden="true"></i>
 	            <i class="fa fa-plus fa-stack-1x text-primary" aria-hidden="true"></i>
 	          </span>
 	          Add a new kiss
-	        </a>
 	      </button>
+		    </a>
 
+	      <a href="<%= "/relationships/#{current_relationship.id}/#{current_user.nickname}/yell" %>">
 				<button type="button" class="btn btn-default btn-lg">
-	        <a href="<%= "/relationships/" + current_relationship.id.to_s + "/new_yell"%>">
 	          <span class="fa-stack">
 	            <i class="fa fa-heart-o fa-stack-2x text-danger" aria-hidden="true"></i>
 	            <i class="fa fa-minus fa-stack-1x text-primary" aria-hidden="true"></i>
 	          </span>
 						Add a new yell
-	        </a>
 	      </button>
+	      </a>
 			</div>
 		</div>
 </div>
 
-
-
-
-
-
-
-	<div class="col-md-4">
+<div class="col-md-4">
 		<div class="bg-warning rounding">
 
 		<div class="bg-info-no-chart row">
@@ -114,18 +102,24 @@
 				</div>
 
 				<div class="col-md-4">
-				
+
 					<div class="bg-<% if (incident.user_id == current_user.id)%>info<% else %>warning<% end %> rounding text-properties">
 						<span class="fa-stack fa-lg">
 							<i class="fa fa-lg fa-<% if incident.status == "positive" %>heart fa-stack-1x text-danger<% elsif incident.status == "negative" %>heart-o fa-stack-1x text-danger"></i><i class="fa fa-bolt fa-stack-1x text-danger<% elsif incident.status == "forgiven" %>heart-o text-muted<% end %>" aria-hidden="true"></i>
-						</span>	
+
+						</span>
+
 						<%= incident.user.nickname %> <%= incident.category %> <%= incident.description %>
 						<br>
 						<small class="text-muted"><%= incident.created_at.strftime("%A %d %B %Y %l:%M:%S %P") %></small>
+
 					</div>
-					
 				</div>
-				<div class="col-md-4"></div>
+				<div class="col-md-4 col-xs-2 text-left button-properties">
+					<% if my_incident?(incident.id) && (incident.user_id == current_partner.id) %>
+						<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.divorce-maker.com" data-text=" @<%= incident.user.twitter %> <%= incident.category %> <%= incident.description %>" data-via="<%= current_user.twitter %>" data-size="large">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+						<% end %>
+				</div>
 			</div>
-	<% end %>
+		<% end %>
 </div>
