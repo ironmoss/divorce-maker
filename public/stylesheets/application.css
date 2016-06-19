@@ -120,7 +120,7 @@ form {
 
 .bookmark-text {
   color: white;
-  font-size: 30px;
+  font-size: 20px;
   text-align: top;
   margin-top: -6px;
 }
@@ -136,7 +136,7 @@ form {
 
   border: solid 1px #ff0000;
   text-align: center;
-  margin: 0px auto;
+  /*margin: 0px auto;*/
   width: 100px;
 }
 
