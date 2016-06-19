@@ -95,7 +95,7 @@ get '/relationships/:id/:nickname/yell' do
   erb :'/relationships/yell/index'
 end
 
-post '/relationships/:id/:nickname/kiss' do
+post '/kiss' do
 	@incident = current_relationship.incidents.build(
 		user_id: current_partner.id,
 		relationship_id: current_relationship.id,
@@ -104,13 +104,13 @@ post '/relationships/:id/:nickname/kiss' do
 		status: "positive"
 	  )
 	if @incident.save
-  	redirect "/relationships/#{params[:id]}/#{params[:nickname]}"
+  	redirect "/relationships/#{current_relationship.id}/#{current_user.nickname}"
 	else
 		erb :index
 	end
 end
 
-post '/relationships/:id/:nickname/yell' do
+post '/yell' do
 	@incident = current_relationship.incidents.build(
 		user_id: current_partner.id,
 		relationship_id: current_relationship.id,
@@ -120,7 +120,7 @@ post '/relationships/:id/:nickname/yell' do
 	  )
 
 	if @incident.save
-  	redirect "/relationships/#{params[:id]}/#{params[:nickname]}"
+  	redirect "/relationships/#{current_relationship.id}/#{current_user.nickname}"
 	else
 		erb :index
 	end
