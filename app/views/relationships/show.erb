@@ -120,7 +120,7 @@
 				</div>
 				<div class="col-md-4 col-xs-2 text-left button-properties">
 					<% if my_incident?(incident.id) && (incident.user_id == current_partner.id) %>
-					<a href="https://twitter.com/share" class="twitter-share-button" data-url="divorce-maker.com" data-text=" @<%= incident.user.nickname %> <%= incident.category %> <%= incident.description %>" data-via="DivorceMaker" data-size="large">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+					<a href="https://twitter.com/share" class="twitter-share-button" data-url="divorce-maker.com" data-text="<%= incident.user.nickname %> <%= incident.category %> <%= incident.description %>" data-via="DivorceMaker" data-size="large">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 					<% end %>
 				</div>
 			</div>
