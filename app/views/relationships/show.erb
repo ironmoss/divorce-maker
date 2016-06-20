@@ -21,26 +21,26 @@
 <div class="col-md-4 well-lg bg-danger relationship-wells winner-column"> <!-- winner status start -->
 	<div class="row">
 		<% if current_relationship.winner == current_user %>
-			<h1><%= current_user.nickname %><br>
-			is winning<br> 
-			the relationship</h1>
+			<h1><%= current_user.nickname %></h1><br>
+			<h2>is winning<br> 
+			the relationship</h2>
 		<% elsif current_relationship.winner == current_partner %>
-			<h1><%= current_partner.nickname %><br>
-			is winning<br>
-			the relationship</h1>
+			<h1><%= current_partner.nickname %></h1><br>
+			<h2>is winning<br>
+			the relationship</h2>
 		<% else %>
-			<h1>You & <%= current_partner.nickname %><br>
-			are now tied</h1>	
+			<h1>You & <%= current_partner.nickname %></h1><br>
+			<h2>are now tied</h2>	
 		<% end %>
 		<br>
-		<i class="fa fa-star fa-3x text-primary" aria-hidden="true"></i>
+		<i class="fa fa-star fa-2x text-primary" aria-hidden="true"></i><i class="fa fa-star fa-2x text-primary" aria-hidden="true"></i><i class="fa fa-star fa-2x text-primary" aria-hidden="true"></i>
 		<br>
 		<% if current_relationship.winner == current_user %>
-			<h2>Maintain your moral high ground</h2>
+			<h3>Maintain your moral high ground</h3>
 		<% elsif current_relationship.winner == current_partner %>
-			<h2>Gain the moral high ground</h2>
+			<h3>Gain the moral high ground</h3>
 		<% else %>
-			<h2> Take the moral high ground</h2>
+			<h3> Take the moral high ground</h3>
 			<br>
 		<% end %>
 	</div>
