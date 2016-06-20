@@ -18,50 +18,53 @@
 			<%= bar_chart Incident.where(user_id: current_user.id).group(:category).order(:calculated_points).sum(:calculated_points) %>
 		</div>
 	</div> <!-- current_user status end -->
-	<div class="col-md-4"> <!-- winner status start -->
-		<div class="well-lg bg-danger relationship-wells">
-			<div class="winner-column">
-				<% if current_relationship.winner == current_user %>
-					<h1><%= current_user.nickname %></h1><br>
-					<h2>is winning<br> 
-					the relationship</h2>
-				<% elsif current_relationship.winner == current_partner %>
-					<h1><%= current_partner.nickname %></h1><br>
-					<h2>is winning<br>
-					the relationship</h2>
-				<% else %>
-					<h1>You & <%= current_partner.nickname %></h1><br>
-					<h2>are now tied</h2>	
-				<% end %>
-				<% if current_relationship.winner == current_user %>
-					<h3>Maintain your moral high ground</h3>
-				<% elsif current_relationship.winner == current_partner %>
-					<h3>Gain the moral high ground</h3>
-					<% else %>
-					<h3> Take the moral high ground</h3>
-				<% end %>
-				<a href='<%= "/relationships/#{current_relationship.id}/#{current_user.nickname}/kiss" %>'>
-					<button type="button" class="btn btn-default btn-lg">
-						<span class="fa-stack">
-							<i class="fa fa-heart fa-stack-2x text-danger" aria-hidden="true"></i>
-							<i class="fa fa-plus fa-stack-1x text-primary" aria-hidden="true"></i>
-						</span>
-						Add a new kiss
-					</button>
-				</a>
-
-				<a href="<%= "/relationships/#{current_relationship.id}/#{current_user.nickname}/yell" %>">
-					<button type="button" class="btn btn-default btn-lg">
-						<span class="fa-stack">
-							<i class="fa fa-heart-o fa-stack-2x text-danger" aria-hidden="true"></i>
-							<i class="fa fa-minus fa-stack-1x text-primary" aria-hidden="true"></i>
-						</span>
-						Add a new yell
-					</button>
-				</a>
-			</div>
-		</div>
-	</div><!-- winner status end -->
+<div class="col-md-4 well-lg bg-danger relationship-wells winner-column"> <!-- winner status start -->
+	<div class="row">
+		<% if current_relationship.winner == current_user %>
+			<h1><%= current_user.nickname %></h1><br>
+			<h2>is winning<br> 
+			the relationship</h2>
+		<% elsif current_relationship.winner == current_partner %>
+			<h1><%= current_partner.nickname %></h1><br>
+			<h2>is winning<br>
+			the relationship</h2>
+		<% else %>
+			<h1>You & <%= current_partner.nickname %></h1><br>
+			<h2>are now tied</h2>	
+		<% end %>
+		<br>
+		<i class="fa fa-star fa-2x text-primary" aria-hidden="true"></i><i class="fa fa-star fa-2x text-primary" aria-hidden="true"></i><i class="fa fa-star fa-2x text-primary" aria-hidden="true"></i>
+		<br>
+		<% if current_relationship.winner == current_user %>
+			<h3>Maintain your moral high ground</h3>
+		<% elsif current_relationship.winner == current_partner %>
+			<h3>Gain the moral high ground</h3>
+		<% else %>
+			<h3> Take the moral high ground</h3>
+			<br>
+		<% end %>
+	</div>
+	<div class="row">
+		<a href='<%= "/relationships/#{current_relationship.id}/#{current_user.nickname}/kiss" %>'>
+			<button type="button" class="btn btn-default btn-lg">
+				<span class="fa-stack">
+					<i class="fa fa-heart fa-stack-2x text-danger" aria-hidden="true"></i>
+					<i class="fa fa-plus fa-stack-1x text-primary" aria-hidden="true"></i>
+				</span>
+				New kiss
+			</button>
+		</a>
+		<a href="<%= "/relationships/#{current_relationship.id}/#{current_user.nickname}/yell" %>">
+			<button type="button" class="btn btn-default btn-lg">
+				<span class="fa-stack">
+					<i class="fa fa-heart-o fa-stack-2x text-danger" aria-hidden="true"></i>
+					<i class="fa fa-minus fa-stack-1x text-primary" aria-hidden="true"></i>
+				</span>
+				New yell
+			</button>
+		</a>
+	</div>
+</div><!-- winner status end -->
 
 	<div class="col-md-4"> <!-- current_partner status start -->
 		<div class="well-lg bg-warning relationship-wells">
