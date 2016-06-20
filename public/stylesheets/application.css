@@ -18,6 +18,11 @@ form {
   min-height: 450px;
 }
 
+.relationship-wells button {
+  margin: 30px 5px;
+}
+
+
 .incident {
   max-height: 500px;
 }
