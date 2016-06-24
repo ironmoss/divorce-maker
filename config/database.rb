@@ -12,6 +12,7 @@ else
 end
 
 configure :production do
+  set :database, ENV['DATABASE_URL']
   # Database connection is configured automatically based on the DATABASE_URL
   # environment variable. This is a feature of sinatra/activerecord support.
   #
