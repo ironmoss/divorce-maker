@@ -3,18 +3,24 @@ configure :development do
   ActiveRecord::Base.logger = Logger.new(STDOUT)
 end
 
-configure :development, :test do
-  if development?
+if development?
+  # set :database, { adapter: 'pg',
+  #   database: 'db/db.sqlite3'
+  # }
   set :database, {
-    adapter: 'sqlite3',
-    database: APP_ROOT.join('db', "#{Sinatra::Application.environment}.sqlite3")
-  }
-  else
-    set :database, ENV['DATABASE_URL']
-  end
+    adapter: 'postgresql',  
+    encoding: 'unicode', 
+    host: 'localhost',
+    database: 'postgres', 
+    pool: 2, 
+    username: 'development', 
+    password: 'development'}
+else 
+  set :database, ENV['DATABASE_URL']
 end
 
 configure :production do
+  set :database, ENV['DATABASE_URL']
   # Database connection is configured automatically based on the DATABASE_URL
   # environment variable. This is a feature of sinatra/activerecord support.
   #

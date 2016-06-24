@@ -15,7 +15,9 @@
 				</div>
 			</div>
 			<br>
+
 			<%= bar_chart Incident.unscoped { Incident.where(user_id: current_user.id).group(:category).order(:calculated_points).sum(:calculated_points) } %>
+
 		</div>
 	</div> <!-- current_user status end -->
 <div class="col-md-4 well-lg bg-danger relationship-wells winner-column"> <!-- winner status start -->
@@ -82,7 +84,9 @@
 				</div>
 			</div>		
 			<br>
+			
 			<%= bar_chart Incident.unscoped { Incident.where(user_id: current_partner.id).group(:category).order(:calculated_points).sum(:calculated_points) } %>
+
 		</div>
 	</div> <!-- current_partner status end -->
 </div>  <!-- relationship header end -->
