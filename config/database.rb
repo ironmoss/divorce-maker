@@ -15,7 +15,6 @@ if development?
     pool: 2, 
     username: 'development', 
     password: 'development'}
-
 else 
   set :database, ENV['DATABASE_URL']
 end
